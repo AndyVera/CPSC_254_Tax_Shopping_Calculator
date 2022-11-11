@@ -127,7 +127,6 @@ void MainWindow::on_DeleteItemBtn_clicked()
         QString targettype = ui->ItemTypeCombo->currentText();
         QString targetprice = ui->ItemPriceBox->text();
 
-        ui->Testing->setText(targetname);
         for(int i = 0; i < itemnamelist.size(); i++){
             if((itemnamelist[i] == targetname) && (itemtypelist[i] == targettype) && (itempricelist[i] == targetprice)){
                 itemnamelist.remove(i);
