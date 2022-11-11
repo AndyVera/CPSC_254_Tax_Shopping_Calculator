@@ -37,10 +37,15 @@ public:
     QPushButton *AddItemBtn;
     QLabel *TotalText;
     QLabel *TotalPriceText;
-    QLabel *label;
+    QLabel *SubtotalText_2;
     QLabel *SubtotalText;
     QComboBox *ItemTypeCombo;
     QComboBox *LocationCombo;
+    QLabel *Testing;
+    QPushButton *DeleteItemBtn;
+    QPushButton *ClearBtn;
+    QPushButton *DisplayBtn;
+    QPushButton *SavelistBtn;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -67,40 +72,55 @@ public:
         TaxRateShow->setGeometry(QRect(160, 130, 61, 16));
         ItemNameTxt = new QLabel(centralWidget);
         ItemNameTxt->setObjectName(QString::fromUtf8("ItemNameTxt"));
-        ItemNameTxt->setGeometry(QRect(40, 220, 81, 16));
+        ItemNameTxt->setGeometry(QRect(40, 170, 81, 16));
         ItemTypeTxt = new QLabel(centralWidget);
         ItemTypeTxt->setObjectName(QString::fromUtf8("ItemTypeTxt"));
-        ItemTypeTxt->setGeometry(QRect(210, 220, 81, 16));
+        ItemTypeTxt->setGeometry(QRect(210, 170, 81, 16));
         ItemPriceTxt = new QLabel(centralWidget);
         ItemPriceTxt->setObjectName(QString::fromUtf8("ItemPriceTxt"));
-        ItemPriceTxt->setGeometry(QRect(390, 220, 59, 15));
+        ItemPriceTxt->setGeometry(QRect(390, 170, 59, 15));
         ItemNameBox = new QLineEdit(centralWidget);
         ItemNameBox->setObjectName(QString::fromUtf8("ItemNameBox"));
-        ItemNameBox->setGeometry(QRect(20, 260, 113, 23));
+        ItemNameBox->setGeometry(QRect(20, 210, 113, 23));
         ItemPriceBox = new QLineEdit(centralWidget);
         ItemPriceBox->setObjectName(QString::fromUtf8("ItemPriceBox"));
-        ItemPriceBox->setGeometry(QRect(360, 260, 113, 23));
+        ItemPriceBox->setGeometry(QRect(360, 210, 113, 23));
         AddItemBtn = new QPushButton(centralWidget);
         AddItemBtn->setObjectName(QString::fromUtf8("AddItemBtn"));
-        AddItemBtn->setGeometry(QRect(210, 320, 80, 23));
+        AddItemBtn->setGeometry(QRect(20, 260, 80, 23));
         TotalText = new QLabel(centralWidget);
         TotalText->setObjectName(QString::fromUtf8("TotalText"));
         TotalText->setGeometry(QRect(150, 390, 101, 16));
         TotalPriceText = new QLabel(centralWidget);
         TotalPriceText->setObjectName(QString::fromUtf8("TotalPriceText"));
         TotalPriceText->setGeometry(QRect(250, 390, 59, 15));
-        label = new QLabel(centralWidget);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(150, 370, 91, 17));
+        SubtotalText_2 = new QLabel(centralWidget);
+        SubtotalText_2->setObjectName(QString::fromUtf8("SubtotalText_2"));
+        SubtotalText_2->setGeometry(QRect(150, 370, 91, 17));
         SubtotalText = new QLabel(centralWidget);
         SubtotalText->setObjectName(QString::fromUtf8("SubtotalText"));
         SubtotalText->setGeometry(QRect(250, 370, 67, 17));
         ItemTypeCombo = new QComboBox(centralWidget);
         ItemTypeCombo->setObjectName(QString::fromUtf8("ItemTypeCombo"));
-        ItemTypeCombo->setGeometry(QRect(210, 260, 86, 25));
+        ItemTypeCombo->setGeometry(QRect(210, 210, 86, 25));
         LocationCombo = new QComboBox(centralWidget);
         LocationCombo->setObjectName(QString::fromUtf8("LocationCombo"));
         LocationCombo->setGeometry(QRect(30, 80, 251, 25));
+        Testing = new QLabel(centralWidget);
+        Testing->setObjectName(QString::fromUtf8("Testing"));
+        Testing->setGeometry(QRect(340, 390, 171, 17));
+        DeleteItemBtn = new QPushButton(centralWidget);
+        DeleteItemBtn->setObjectName(QString::fromUtf8("DeleteItemBtn"));
+        DeleteItemBtn->setGeometry(QRect(130, 260, 89, 25));
+        ClearBtn = new QPushButton(centralWidget);
+        ClearBtn->setObjectName(QString::fromUtf8("ClearBtn"));
+        ClearBtn->setGeometry(QRect(250, 260, 89, 25));
+        DisplayBtn = new QPushButton(centralWidget);
+        DisplayBtn->setObjectName(QString::fromUtf8("DisplayBtn"));
+        DisplayBtn->setGeometry(QRect(370, 260, 89, 25));
+        SavelistBtn = new QPushButton(centralWidget);
+        SavelistBtn->setObjectName(QString::fromUtf8("SavelistBtn"));
+        SavelistBtn->setGeometry(QRect(200, 320, 89, 25));
         MainWindow->setCentralWidget(centralWidget);
 
         retranslateUi(MainWindow);
@@ -122,8 +142,13 @@ public:
         AddItemBtn->setText(QApplication::translate("MainWindow", "Add Item", nullptr));
         TotalText->setText(QApplication::translate("MainWindow", "Grandtotal is:", nullptr));
         TotalPriceText->setText(QApplication::translate("MainWindow", "$0.00", nullptr));
-        label->setText(QApplication::translate("MainWindow", "Subtotal is: ", nullptr));
+        SubtotalText_2->setText(QApplication::translate("MainWindow", "Subtotal is: ", nullptr));
         SubtotalText->setText(QApplication::translate("MainWindow", "$0.00", nullptr));
+        Testing->setText(QApplication::translate("MainWindow", "Testing", nullptr));
+        DeleteItemBtn->setText(QApplication::translate("MainWindow", "Delete Item", nullptr));
+        ClearBtn->setText(QApplication::translate("MainWindow", "Clear List", nullptr));
+        DisplayBtn->setText(QApplication::translate("MainWindow", "Display", nullptr));
+        SavelistBtn->setText(QApplication::translate("MainWindow", "Save", nullptr));
     } // retranslateUi
 
 };

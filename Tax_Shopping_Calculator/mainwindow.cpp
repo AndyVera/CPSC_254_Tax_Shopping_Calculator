@@ -2,6 +2,11 @@
 #include "ui_mainwindow.h"
 #include <array>
 #include <QMessageBox>
+#include <QDebug>
+#include <QVector>
+#include <vector>
+#include <QMessageBox>
+#include <string>
 using namespace std;
 
 double taxRate = 0.0;
@@ -9,6 +14,10 @@ QString inputlocation = "";
 QString SetLocations[2] = {"Los Angeles", "Fullerton"};
 double TransactionTotal = 0.0;
 double Subtotal = 0.00;
+QVector<QString>itemnamelist;
+QVector<QString> itemtypelist;
+QVector<QString> itempricelist;
+string itemlist;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -44,8 +53,10 @@ void MainWindow::on_LocationSubmitBtn_clicked()
 void MainWindow::on_AddItemBtn_clicked()
 {
     //QString itemname = ui->ItemNameBox->text();
+    qDebug("Testing");
     QString itemtype = ui->ItemTypeCombo->currentText();
     double itemprice = ui->ItemPriceBox->text().toDouble();
+    QString itemname = ui->ItemNameBox->text();
 
     if (taxRate != 0.00){
         if (itemtype == "GM"){
@@ -65,8 +76,37 @@ void MainWindow::on_AddItemBtn_clicked()
         ui->SubtotalText->setText("$" + strnSubTotal);
     }
 
-    else if (taxRate == 0.00){
-        QMessageBox messagebox;
-        messagebox.critical(0,"Invalid Entry","Enter a Location First!");
-    }
+    itemnamelist.append(itemname);
+    itemtypelist.append(itemtype);
+    itempricelist.append(ui->ItemPriceBox->text());
+    ui->Testing->setText(itemtypelist[0]);
+
+
+    //else if (taxRate == 0.00){
+    //    QMessageBox messagebox;
+    //    messagebox.critical(0,"Invalid Entry","Enter a Location First!");
+    //}
 }
+
+void MainWindow::on_DisplayBtn_clicked()
+{
+    //string itemlist;
+
+    for(int i = 0; i < itemnamelist.size(); i++){
+        itemlist += itemnamelist[i].toStdString();
+        itemlist += " ";
+        itemlist += itemtypelist[i].toStdString();
+        itemlist += " $";
+        itemlist += itempricelist[i].toStdString();
+        itemlist += "\n";
+    }
+    const char* printItemList = itemlist.c_str();
+    QMessageBox::information(this, tr("Item List"), tr(printItemList));
+}
+
+
+void MainWindow::on_ClearBtn_clicked()
+{
+
+}
+

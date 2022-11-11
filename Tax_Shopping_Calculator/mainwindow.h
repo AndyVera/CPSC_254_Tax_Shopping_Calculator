@@ -20,6 +20,8 @@ private slots:
 
     void on_AddItemBtn_clicked();
 
+    void on_DisplayBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
