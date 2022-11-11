@@ -5,19 +5,19 @@
 #include <QDebug>
 #include <QVector>
 #include <vector>
-#include <QMessageBox>
 #include <string>
 using namespace std;
 
 double taxRate = 0.0;
 QString inputlocation = "";
 QString SetLocations[2] = {"Los Angeles", "Fullerton"};
-double TransactionTotal = 0.0;
-double Subtotal = 0.00;
+//double TransactionTotal = 0.0;
+//double Subtotal = 0.00;
 QVector<QString>itemnamelist;
 QVector<QString> itemtypelist;
 QVector<QString> itempricelist;
 string itemlist = "There Are No Items In Cart";
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -52,40 +52,29 @@ void MainWindow::on_LocationSubmitBtn_clicked()
 
 void MainWindow::on_AddItemBtn_clicked()
 {
-    //QString itemname = ui->ItemNameBox->text();
-    qDebug("Testing");
+
     QString itemtype = ui->ItemTypeCombo->currentText();
-    double itemprice = ui->ItemPriceBox->text().toDouble();
     QString itemname = ui->ItemNameBox->text();
 
     if (taxRate != 0.00){
-        if (itemtype == "GM"){
-            double tax = taxRate/100;
-            double taxAdded = itemprice * tax;
-            double itemtotal = itemprice + taxAdded;
-            TransactionTotal += itemtotal;
-            Subtotal += itemprice;
-        }
-        else if (itemtype == "GR"){
-            TransactionTotal += itemprice;
-            Subtotal += itemprice;
-        }
-        QString strnTransTotal = QString::number(TransactionTotal, 'f', 2 );
-        ui->TotalPriceText->setText("$" + strnTransTotal);
-        QString strnSubTotal = QString::number(Subtotal, 'f', 2 );
-        ui->SubtotalText->setText("$" + strnSubTotal);
+
+        itemnamelist.append(itemname);
+        itemtypelist.append(itemtype);
+        itempricelist.append(ui->ItemPriceBox->text());
+
+        double transactionTotal = UpdateTransTotal(itemnamelist, itemtypelist, itempricelist);
+        double subtotal = UpdateSubTotal(itemnamelist, itemtypelist, itempricelist);
+
+        updateSubTransTotalViews(subtotal,transactionTotal);
+
+        ui->ItemNameBox->setText("");
+        ui->ItemPriceBox->setText("");
+    }
+    else if (taxRate == 0.00){
+        QMessageBox messagebox;
+        messagebox.critical(0,"Invalid Entry","Enter a Location First!");
     }
 
-    itemnamelist.append(itemname);
-    itemtypelist.append(itemtype);
-    itempricelist.append(ui->ItemPriceBox->text());
-    ui->Testing->setText(itemtypelist[0]);
-
-
-    //else if (taxRate == 0.00){
-    //    QMessageBox messagebox;
-    //    messagebox.critical(0,"Invalid Entry","Enter a Location First!");
-    //}
 }
 
 void MainWindow::on_DisplayBtn_clicked()
@@ -103,6 +92,10 @@ void MainWindow::on_DisplayBtn_clicked()
             itemlist += "\n";
         }
     }
+
+    if(itemnamelist.isEmpty()){
+        itemlist = "There Are No Items In Cart";
+    }
     const char* printItemList = itemlist.c_str();
     QMessageBox::information(this, tr("Item List"), tr(printItemList));
 }
@@ -115,7 +108,87 @@ void MainWindow::on_ClearBtn_clicked()
     itempricelist.clear();
     itemtypelist.clear();
 
-    ui->SubtotalText->setText("0.00");
-    ui->TotalPriceText->setText("0.00");
+    ui->SubtotalText->setText("$0.00");
+    ui->TotalPriceText->setText("$0.00");
+    ui->ItemNameBox->setText("");
+    ui->ItemPriceBox->setText("");
 }
+
+
+void MainWindow::on_DeleteItemBtn_clicked()
+{
+    bool itemFound = false;
+
+    if(itemnamelist.isEmpty() && itempricelist.isEmpty() && itemtypelist.isEmpty()){
+        QMessageBox::critical(this,tr("Warning"),tr("Cannot Delete Because Cart is Empty"));
+    }
+    else{
+        QString targetname = ui->ItemNameBox->text();
+        QString targettype = ui->ItemTypeCombo->currentText();
+        QString targetprice = ui->ItemPriceBox->text();
+
+        ui->Testing->setText(targetname);
+        for(int i = 0; i < itemnamelist.size(); i++){
+            if((itemnamelist[i] == targetname) && (itemtypelist[i] == targettype) && (itempricelist[i] == targetprice)){
+                itemnamelist.remove(i);
+                itempricelist.remove(i);
+                itemtypelist.remove(i);
+                itemFound = true;
+
+                double newTransTotal = UpdateTransTotal(itemnamelist, itemtypelist,itempricelist);
+                double newSubTotal = UpdateSubTotal(itemnamelist, itemtypelist, itempricelist);
+                updateSubTransTotalViews(newSubTotal,newTransTotal);
+
+                QMessageBox::information(this,tr("Removing Item"), tr("The Item Was Removed Successfully!"));
+                break;
+            }
+
+
+        }
+
+        if(itemFound == false){
+            QMessageBox::critical(this,tr("Deleting An Item"), tr("Could Not Delete Item Because It\n Is Not In Cart"));
+        }
+    }
+    ui->ItemNameBox->setText("");
+    ui->ItemPriceBox->setText("");
+}
+
+double UpdateSubTotal(QVector<QString> tempnamelist, QVector<QString> temptypelist, QVector<QString>temppricelist){
+
+    double tempSubTotal = 0.00;
+
+    for(int i = 0; i < tempnamelist.size(); i++){
+
+        tempSubTotal += temppricelist[i].toDouble();
+    }
+    return tempSubTotal;
+}
+
+double UpdateTransTotal(QVector<QString> tempnamelist, QVector<QString> temptypelist, QVector<QString>temppricelist){
+    double tempTransTotal = 0.00;
+
+    for(int i = 0; i < tempnamelist.size(); i++){
+        if (temptypelist[i] == "GM"){
+            double tax = taxRate/100;
+            double taxAdded = temppricelist[i].toDouble() * tax;
+            double itemtotal = temppricelist[i].toDouble() + taxAdded;
+            tempTransTotal += itemtotal;
+        }
+        else if (temptypelist[i] == "GR"){
+            tempTransTotal += temppricelist[i].toDouble();
+        }
+    }
+    return tempTransTotal;
+}
+
+void MainWindow::updateSubTransTotalViews(double tempSubTotal, double tempTranstotal){
+
+    QString strnTransTotal = QString::number(tempTranstotal, 'f', 2 );
+    ui->TotalPriceText->setText("$" + strnTransTotal);
+    QString strnSubTotal = QString::number(tempSubTotal, 'f', 2 );
+    ui->SubtotalText->setText("$" + strnSubTotal);
+
+}
+
 

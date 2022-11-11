@@ -24,8 +24,15 @@ private slots:
 
     void on_ClearBtn_clicked();
 
+    void on_DeleteItemBtn_clicked();
+
+    void updateSubTransTotalViews(double tempSubTotal, double tempTranstotal);
+
 private:
     Ui::MainWindow *ui;
 };
+
+double UpdateSubTotal(QVector<QString> tempnamelist, QVector<QString> temptypelist, QVector<QString>temppricelist);
+double UpdateTransTotal(QVector<QString> tempnamelist, QVector<QString> temptypelist, QVector<QString>temppricelist);
 
 #endif // MAINWINDOW_H
