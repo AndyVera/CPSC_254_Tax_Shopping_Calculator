@@ -17,7 +17,7 @@ double Subtotal = 0.00;
 QVector<QString>itemnamelist;
 QVector<QString> itemtypelist;
 QVector<QString> itempricelist;
-string itemlist;
+string itemlist = "There Are No Items In Cart";
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -92,13 +92,16 @@ void MainWindow::on_DisplayBtn_clicked()
 {
     //string itemlist;
 
-    for(int i = 0; i < itemnamelist.size(); i++){
-        itemlist += itemnamelist[i].toStdString();
-        itemlist += " ";
-        itemlist += itemtypelist[i].toStdString();
-        itemlist += " $";
-        itemlist += itempricelist[i].toStdString();
-        itemlist += "\n";
+    if(!itemnamelist.isEmpty()){
+        itemlist = "";
+        for(int i = 0; i < itemnamelist.size(); i++){
+            itemlist += itemnamelist[i].toStdString();
+            itemlist += " ";
+            itemlist += itemtypelist[i].toStdString();
+            itemlist += " $";
+            itemlist += itempricelist[i].toStdString();
+            itemlist += "\n";
+        }
     }
     const char* printItemList = itemlist.c_str();
     QMessageBox::information(this, tr("Item List"), tr(printItemList));
@@ -107,6 +110,12 @@ void MainWindow::on_DisplayBtn_clicked()
 
 void MainWindow::on_ClearBtn_clicked()
 {
+    itemlist = "There Are No Items In Cart";
+    itemnamelist.clear();
+    itempricelist.clear();
+    itemtypelist.clear();
 
+    ui->SubtotalText->setText("0.00");
+    ui->TotalPriceText->setText("0.00");
 }
 

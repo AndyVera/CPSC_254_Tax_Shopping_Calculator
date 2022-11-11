@@ -22,6 +22,8 @@ private slots:
 
     void on_DisplayBtn_clicked();
 
+    void on_ClearBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
