@@ -1033,7 +1033,14 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QWidget \
 		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QMessageBox \
 		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qmessagebox.h \
-		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qdialog.h
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qdialog.h \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/QDebug \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/QVector \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/QFile \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/QTextStream \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/QDir \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qdir.h \
+		../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfileinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
