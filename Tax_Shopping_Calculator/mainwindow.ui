@@ -226,19 +226,6 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="Testing">
-    <property name="geometry">
-     <rect>
-      <x>340</x>
-      <y>390</y>
-      <width>171</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Testing</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="DeleteItemBtn">
     <property name="geometry">
      <rect>

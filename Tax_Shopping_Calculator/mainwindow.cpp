@@ -6,6 +6,9 @@
 #include <QVector>
 #include <vector>
 #include <string>
+#include <QFile>
+#include <QTextStream>
+#include <QDir>
 using namespace std;
 
 double taxRate = 0.0;
@@ -190,4 +193,52 @@ void MainWindow::updateSubTransTotalViews(double tempSubTotal, double tempTranst
 
 }
 
+
+
+void MainWindow::on_SavelistBtn_clicked()
+{
+    int filename = (qrand() % (10));
+    QString filenmestr = QString::number(filename);
+    QString foldername = "Receipts/";
+    QDir dir;
+
+    if(!dir.exists(foldername)){
+        dir.mkpath(foldername);
+    }
+
+
+    QString tempath = foldername + filenmestr +".txt";
+
+    QFile transfile(tempath);
+    if(!transfile.open(QFile::WriteOnly | QFile::Text)){
+        QMessageBox::critical(this, tr("Save Transaction"), tr("Could not Open File"));
+        qDebug() << "Error in Opening the File";
+        return;
+    }
+
+    QTextStream output(&transfile);
+    if(!itemnamelist.isEmpty()){
+        itemlist = "";
+        for(int i = 0; i < itemnamelist.size(); i++){
+            itemlist += itemnamelist[i].toStdString();
+            itemlist += " ";
+            itemlist += itemtypelist[i].toStdString();
+            itemlist += " $";
+            itemlist += itempricelist[i].toStdString();
+            itemlist += "\n";
+        }
+    }
+
+    if(itemnamelist.isEmpty()){
+        itemlist = "There Are No Items In Cart";
+    }
+    const char* printItemList = itemlist.c_str();
+    output << printItemList;
+    transfile.flush();
+    transfile.close();
+
+    QMessageBox::information(this, tr("Save Transaction"), tr("Current Transaction Was Saved!"));
+
+
+}
 

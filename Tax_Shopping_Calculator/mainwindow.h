@@ -28,6 +28,8 @@ private slots:
 
     void updateSubTransTotalViews(double tempSubTotal, double tempTranstotal);
 
+    void on_SavelistBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

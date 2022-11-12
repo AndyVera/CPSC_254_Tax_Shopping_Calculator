@@ -41,7 +41,6 @@ public:
     QLabel *SubtotalText;
     QComboBox *ItemTypeCombo;
     QComboBox *LocationCombo;
-    QLabel *Testing;
     QPushButton *DeleteItemBtn;
     QPushButton *ClearBtn;
     QPushButton *DisplayBtn;
@@ -106,9 +105,6 @@ public:
         LocationCombo = new QComboBox(centralWidget);
         LocationCombo->setObjectName(QString::fromUtf8("LocationCombo"));
         LocationCombo->setGeometry(QRect(30, 80, 251, 25));
-        Testing = new QLabel(centralWidget);
-        Testing->setObjectName(QString::fromUtf8("Testing"));
-        Testing->setGeometry(QRect(340, 390, 171, 17));
         DeleteItemBtn = new QPushButton(centralWidget);
         DeleteItemBtn->setObjectName(QString::fromUtf8("DeleteItemBtn"));
         DeleteItemBtn->setGeometry(QRect(130, 260, 89, 25));
@@ -144,7 +140,6 @@ public:
         TotalPriceText->setText(QApplication::translate("MainWindow", "$0.00", nullptr));
         SubtotalText_2->setText(QApplication::translate("MainWindow", "Subtotal is: ", nullptr));
         SubtotalText->setText(QApplication::translate("MainWindow", "$0.00", nullptr));
-        Testing->setText(QApplication::translate("MainWindow", "Testing", nullptr));
         DeleteItemBtn->setText(QApplication::translate("MainWindow", "Delete Item", nullptr));
         ClearBtn->setText(QApplication::translate("MainWindow", "Clear List", nullptr));
         DisplayBtn->setText(QApplication::translate("MainWindow", "Display", nullptr));
