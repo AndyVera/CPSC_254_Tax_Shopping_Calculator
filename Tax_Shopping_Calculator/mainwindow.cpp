@@ -9,6 +9,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QDir>
+#include <QRandomGenerator>
 using namespace std;
 
 double taxRate = 0.0;
@@ -197,7 +198,7 @@ void MainWindow::updateSubTransTotalViews(double tempSubTotal, double tempTranst
 
 void MainWindow::on_SavelistBtn_clicked()
 {
-    int filename = (qrand() % (10));
+    int filename = (rand() % (10));
     QString filenmestr = QString::number(filename);
     QString foldername = "Receipts/";
     QDir dir;
