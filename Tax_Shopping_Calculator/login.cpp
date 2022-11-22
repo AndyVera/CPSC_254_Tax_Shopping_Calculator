@@ -4,6 +4,7 @@
 #include <QMessageBox>
 #include <QDir>
 #include <QTextStream>
+#include <QDebug>
 using namespace std;
 
 login::login(QWidget *parent) :

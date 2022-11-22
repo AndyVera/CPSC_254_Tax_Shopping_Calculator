@@ -17,7 +17,7 @@ CXX           = g++
 DEFINES       = -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I. -I../../../../Qt5.12.12/5.12.12/gcc_64/include -I../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets -I../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui -I../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I. -I../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-g++
+INCPATH       = -I. -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I. -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-g++
 QMAKE         = /home/andyvera/Qt5.12.12/5.12.12/gcc_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = Tax_Shopping_Calculator1.0.0
-DISTDIR = /home/andyvera/Documents/CPSC_254/CPSC_254_Tax_Shopping_Calculator/Tax_Shopping_Calculator/.tmp/Tax_Shopping_Calculator1.0.0
+DISTDIR = /home/andyvera/Documents/CPSC_254/CPSC254_V2/CPSC_254_Tax_Shopping_Calculator/Tax_Shopping_Calculator/.tmp/Tax_Shopping_Calculator1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-rpath,/home/andyvera/Qt5.12.12/5.12.12/gcc_64/lib
 LIBS          = $(SUBLIBS) /home/andyvera/Qt5.12.12/5.12.12/gcc_64/lib/libQt5Widgets.so /home/andyvera/Qt5.12.12/5.12.12/gcc_64/lib/libQt5Gui.so /home/andyvera/Qt5.12.12/5.12.12/gcc_64/lib/libQt5Core.so -lGL -lpthread   
@@ -53,183 +53,189 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = main.cpp \
-		mainwindow.cpp moc_mainwindow.cpp
+		login.cpp \
+		mainwindow.cpp moc_mainwindow.cpp \
+		moc_login.cpp
 OBJECTS       = main.o \
+		login.o \
 		mainwindow.o \
-		moc_mainwindow.o
-DIST          = ../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_pre.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/common/unix.conf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/common/linux.conf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/common/sanitize.conf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/common/gcc-base.conf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/common/gcc-base-unix.conf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/common/g++-base.conf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/common/g++-unix.conf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/qconfig.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3danimation.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3danimation_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dcore.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dcore_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dextras.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dextras_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dinput.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dinput_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dlogic.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dlogic_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquick.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquick_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickanimation.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickanimation_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickextras.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickextras_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickinput.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickinput_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickrender.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickrender_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickscene2d.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickscene2d_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3drender.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3drender_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_accessibility_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_bluetooth.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_bluetooth_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_bootstrap_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_concurrent.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_concurrent_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_core.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_core_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_dbus.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_dbus_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_designer.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_designer_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_designercomponents_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_devicediscovery_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_edid_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_egl_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_eglfs_kms_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_eglfsdeviceintegration_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_eventdispatcher_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_fb_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_fontdatabase_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_gamepad.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_gamepad_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_glx_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_gui.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_gui_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_help.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_help_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_input_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_kms_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_linuxaccessibility_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_location.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_location_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_multimedia.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_multimedia_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_multimediagsttools_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_multimediawidgets.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_multimediawidgets_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_network.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_network_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_nfc.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_nfc_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_opengl.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_opengl_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_openglextensions.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_openglextensions_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_packetprotocol_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_platformcompositor_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_positioning.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_positioning_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_positioningquick.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_positioningquick_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_printsupport.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_printsupport_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qml.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qml_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qmldebug_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qmldevtools_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qmltest.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qmltest_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qtmultimediaquicktools_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quick.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quick_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickcontrols2.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickcontrols2_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickparticles_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickshapes_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quicktemplates2.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quicktemplates2_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickwidgets.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickwidgets_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_remoteobjects.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_remoteobjects_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_repparser.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_repparser_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_scxml.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_scxml_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_sensors.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_sensors_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_serialbus.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_serialbus_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_serialport.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_serialport_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_service_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_sql.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_sql_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_svg.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_svg_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_testlib.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_testlib_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_texttospeech.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_texttospeech_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_theme_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_uiplugin.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_uitools.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_uitools_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_vulkan_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_waylandclient.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_waylandclient_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_waylandcompositor.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_waylandcompositor_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_webchannel.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_webchannel_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_websockets.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_websockets_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_webview.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_webview_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_widgets.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_widgets_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_x11extras.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_x11extras_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_xml.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_xml_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_xmlpatterns.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_xmlpatterns_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qt_functions.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qt_config.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-g++/qmake.conf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_post.prf \
+		moc_mainwindow.o \
+		moc_login.o
+DIST          = /home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_pre.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/common/unix.conf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/common/linux.conf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/common/sanitize.conf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/common/gcc-base.conf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/common/gcc-base-unix.conf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/common/g++-base.conf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/common/g++-unix.conf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/qconfig.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3danimation.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3danimation_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dcore.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dcore_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dextras.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dextras_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dinput.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dinput_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dlogic.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dlogic_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquick.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquick_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickanimation.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickanimation_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickextras.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickextras_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickinput.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickinput_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickrender.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickrender_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickscene2d.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickscene2d_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3drender.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3drender_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_accessibility_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_bluetooth.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_bluetooth_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_bootstrap_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_concurrent.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_concurrent_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_core.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_core_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_dbus.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_dbus_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_designer.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_designer_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_designercomponents_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_devicediscovery_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_edid_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_egl_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_eglfs_kms_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_eglfsdeviceintegration_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_eventdispatcher_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_fb_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_fontdatabase_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_gamepad.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_gamepad_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_glx_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_gui.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_gui_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_help.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_help_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_input_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_kms_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_linuxaccessibility_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_location.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_location_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_multimedia.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_multimedia_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_multimediagsttools_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_multimediawidgets.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_multimediawidgets_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_network.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_network_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_nfc.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_nfc_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_opengl.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_opengl_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_openglextensions.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_openglextensions_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_packetprotocol_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_platformcompositor_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_positioning.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_positioning_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_positioningquick.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_positioningquick_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_printsupport.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_printsupport_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qml.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qml_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qmldebug_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qmldevtools_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qmltest.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qmltest_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qtmultimediaquicktools_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quick.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quick_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickcontrols2.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickcontrols2_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickparticles_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickshapes_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quicktemplates2.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quicktemplates2_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickwidgets.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickwidgets_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_remoteobjects.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_remoteobjects_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_repparser.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_repparser_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_scxml.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_scxml_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_sensors.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_sensors_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_serialbus.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_serialbus_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_serialport.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_serialport_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_service_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_sql.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_sql_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_svg.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_svg_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_testlib.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_testlib_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_texttospeech.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_texttospeech_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_theme_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_uiplugin.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_uitools.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_uitools_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_vulkan_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_waylandclient.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_waylandclient_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_waylandcompositor.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_waylandcompositor_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_webchannel.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_webchannel_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_websockets.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_websockets_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_webview.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_webview_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_widgets.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_widgets_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_x11extras.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_x11extras_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_xml.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_xml_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_xmlpatterns.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_xmlpatterns_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qt_functions.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qt_config.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-g++/qmake.conf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_post.prf \
 		.qmake.stash \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/exclusive_builds.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/toolchain.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/default_pre.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/resolve_config.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/default_post.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/warn_on.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qt.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/resources.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/moc.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/unix/opengl.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/uic.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/unix/thread.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qmake_use.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/file_copies.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/testcase_targets.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/exceptions.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/yacc.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/lex.prf \
-		Tax_Shopping_Calculator.pro mainwindow.h main.cpp \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/exclusive_builds.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/toolchain.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/default_pre.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/resolve_config.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/default_post.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/warn_on.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qt.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/resources.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/moc.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/unix/opengl.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/uic.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/unix/thread.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qmake_use.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/file_copies.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/testcase_targets.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/exceptions.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/yacc.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/lex.prf \
+		Tax_Shopping_Calculator.pro mainwindow.h \
+		login.h main.cpp \
+		login.cpp \
 		mainwindow.cpp
 QMAKE_TARGET  = Tax_Shopping_Calculator
 DESTDIR       = 
@@ -239,355 +245,355 @@ TARGET        = Tax_Shopping_Calculator
 first: all
 ####### Build rules
 
-Tax_Shopping_Calculator: ui_mainwindow.h $(OBJECTS)  
+Tax_Shopping_Calculator: ui_mainwindow.h ui_login.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
-Makefile: Tax_Shopping_Calculator.pro ../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-g++/qmake.conf ../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_pre.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/common/unix.conf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/common/linux.conf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/common/sanitize.conf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/common/gcc-base.conf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/common/gcc-base-unix.conf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/common/g++-base.conf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/common/g++-unix.conf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/qconfig.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3danimation.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3danimation_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dcore.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dcore_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dextras.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dextras_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dinput.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dinput_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dlogic.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dlogic_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquick.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquick_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickanimation.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickanimation_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickextras.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickextras_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickinput.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickinput_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickrender.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickrender_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickscene2d.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickscene2d_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3drender.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3drender_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_accessibility_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_bluetooth.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_bluetooth_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_bootstrap_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_concurrent.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_concurrent_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_core.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_core_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_dbus.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_dbus_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_designer.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_designer_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_designercomponents_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_devicediscovery_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_edid_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_egl_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_eglfs_kms_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_eglfsdeviceintegration_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_eventdispatcher_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_fb_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_fontdatabase_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_gamepad.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_gamepad_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_glx_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_gui.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_gui_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_help.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_help_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_input_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_kms_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_linuxaccessibility_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_location.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_location_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_multimedia.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_multimedia_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_multimediagsttools_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_multimediawidgets.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_multimediawidgets_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_network.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_network_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_nfc.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_nfc_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_opengl.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_opengl_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_openglextensions.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_openglextensions_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_packetprotocol_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_platformcompositor_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_positioning.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_positioning_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_positioningquick.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_positioningquick_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_printsupport.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_printsupport_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qml.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qml_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qmldebug_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qmldevtools_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qmltest.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qmltest_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qtmultimediaquicktools_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quick.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quick_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickcontrols2.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickcontrols2_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickparticles_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickshapes_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quicktemplates2.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quicktemplates2_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickwidgets.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickwidgets_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_remoteobjects.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_remoteobjects_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_repparser.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_repparser_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_scxml.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_scxml_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_sensors.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_sensors_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_serialbus.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_serialbus_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_serialport.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_serialport_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_service_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_sql.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_sql_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_svg.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_svg_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_testlib.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_testlib_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_texttospeech.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_texttospeech_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_theme_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_uiplugin.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_uitools.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_uitools_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_vulkan_support_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_waylandclient.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_waylandclient_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_waylandcompositor.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_waylandcompositor_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_webchannel.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_webchannel_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_websockets.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_websockets_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_webview.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_webview_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_widgets.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_widgets_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_x11extras.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_x11extras_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_xml.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_xml_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_xmlpatterns.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_xmlpatterns_private.pri \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qt_functions.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qt_config.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-g++/qmake.conf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_post.prf \
+Makefile: Tax_Shopping_Calculator.pro /home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-g++/qmake.conf /home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_pre.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/common/unix.conf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/common/linux.conf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/common/sanitize.conf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/common/gcc-base.conf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/common/gcc-base-unix.conf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/common/g++-base.conf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/common/g++-unix.conf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/qconfig.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3danimation.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3danimation_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dcore.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dcore_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dextras.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dextras_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dinput.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dinput_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dlogic.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dlogic_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquick.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquick_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickanimation.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickanimation_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickextras.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickextras_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickinput.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickinput_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickrender.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickrender_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickscene2d.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickscene2d_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3drender.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3drender_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_accessibility_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_bluetooth.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_bluetooth_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_bootstrap_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_concurrent.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_concurrent_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_core.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_core_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_dbus.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_dbus_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_designer.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_designer_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_designercomponents_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_devicediscovery_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_edid_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_egl_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_eglfs_kms_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_eglfsdeviceintegration_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_eventdispatcher_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_fb_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_fontdatabase_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_gamepad.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_gamepad_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_glx_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_gui.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_gui_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_help.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_help_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_input_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_kms_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_linuxaccessibility_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_location.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_location_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_multimedia.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_multimedia_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_multimediagsttools_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_multimediawidgets.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_multimediawidgets_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_network.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_network_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_nfc.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_nfc_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_opengl.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_opengl_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_openglextensions.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_openglextensions_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_packetprotocol_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_platformcompositor_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_positioning.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_positioning_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_positioningquick.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_positioningquick_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_printsupport.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_printsupport_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qml.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qml_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qmldebug_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qmldevtools_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qmltest.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qmltest_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qtmultimediaquicktools_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quick.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quick_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickcontrols2.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickcontrols2_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickparticles_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickshapes_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quicktemplates2.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quicktemplates2_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickwidgets.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickwidgets_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_remoteobjects.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_remoteobjects_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_repparser.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_repparser_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_scxml.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_scxml_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_sensors.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_sensors_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_serialbus.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_serialbus_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_serialport.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_serialport_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_service_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_sql.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_sql_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_svg.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_svg_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_testlib.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_testlib_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_texttospeech.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_texttospeech_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_theme_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_uiplugin.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_uitools.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_uitools_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_vulkan_support_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_waylandclient.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_waylandclient_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_waylandcompositor.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_waylandcompositor_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_webchannel.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_webchannel_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_websockets.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_websockets_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_webview.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_webview_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_widgets.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_widgets_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_x11extras.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_x11extras_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_xml.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_xml_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_xmlpatterns.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_xmlpatterns_private.pri \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qt_functions.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qt_config.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-g++/qmake.conf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_post.prf \
 		.qmake.stash \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/exclusive_builds.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/toolchain.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/default_pre.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/resolve_config.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/default_post.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/warn_on.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qt.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/resources.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/moc.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/unix/opengl.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/uic.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/unix/thread.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qmake_use.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/file_copies.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/testcase_targets.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/exceptions.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/yacc.prf \
-		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/lex.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/exclusive_builds.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/toolchain.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/default_pre.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/resolve_config.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/default_post.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/warn_on.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qt.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/resources.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/moc.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/unix/opengl.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/uic.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/unix/thread.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qmake_use.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/file_copies.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/testcase_targets.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/exceptions.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/yacc.prf \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/lex.prf \
 		Tax_Shopping_Calculator.pro
 	$(QMAKE) -o Makefile Tax_Shopping_Calculator.pro -spec linux-g++ CONFIG+=debug
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_pre.prf:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/common/unix.conf:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/common/linux.conf:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/common/sanitize.conf:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/common/gcc-base.conf:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/common/gcc-base-unix.conf:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/common/g++-base.conf:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/common/g++-unix.conf:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/qconfig.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3danimation.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3danimation_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dcore.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dcore_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dextras.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dextras_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dinput.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dinput_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dlogic.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dlogic_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquick.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquick_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickanimation.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickanimation_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickextras.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickextras_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickinput.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickinput_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickrender.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickrender_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickscene2d.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickscene2d_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3drender.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3drender_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_accessibility_support_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_bluetooth.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_bluetooth_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_bootstrap_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_concurrent.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_concurrent_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_core.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_core_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_dbus.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_dbus_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_designer.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_designer_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_designercomponents_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_devicediscovery_support_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_edid_support_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_egl_support_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_eglfs_kms_support_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_eglfsdeviceintegration_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_eventdispatcher_support_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_fb_support_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_fontdatabase_support_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_gamepad.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_gamepad_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_glx_support_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_gui.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_gui_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_help.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_help_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_input_support_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_kms_support_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_linuxaccessibility_support_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_location.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_location_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_multimedia.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_multimedia_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_multimediagsttools_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_multimediawidgets.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_multimediawidgets_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_network.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_network_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_nfc.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_nfc_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_opengl.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_opengl_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_openglextensions.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_openglextensions_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_packetprotocol_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_platformcompositor_support_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_positioning.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_positioning_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_positioningquick.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_positioningquick_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_printsupport.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_printsupport_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qml.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qml_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qmldebug_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qmldevtools_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qmltest.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qmltest_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qtmultimediaquicktools_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quick.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quick_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickcontrols2.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickcontrols2_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickparticles_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickshapes_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quicktemplates2.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quicktemplates2_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickwidgets.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickwidgets_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_remoteobjects.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_remoteobjects_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_repparser.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_repparser_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_scxml.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_scxml_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_sensors.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_sensors_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_serialbus.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_serialbus_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_serialport.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_serialport_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_service_support_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_sql.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_sql_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_svg.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_svg_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_testlib.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_testlib_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_texttospeech.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_texttospeech_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_theme_support_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_uiplugin.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_uitools.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_uitools_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_vulkan_support_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_waylandclient.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_waylandclient_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_waylandcompositor.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_waylandcompositor_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_webchannel.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_webchannel_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_websockets.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_websockets_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_webview.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_webview_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_widgets.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_widgets_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_x11extras.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_x11extras_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_xml.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_xml_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_xmlpatterns.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_xmlpatterns_private.pri:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qt_functions.prf:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qt_config.prf:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-g++/qmake.conf:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_post.prf:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_pre.prf:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/common/unix.conf:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/common/linux.conf:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/common/sanitize.conf:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/common/gcc-base.conf:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/common/gcc-base-unix.conf:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/common/g++-base.conf:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/common/g++-unix.conf:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/qconfig.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3danimation.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3danimation_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dcore.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dcore_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dextras.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dextras_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dinput.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dinput_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dlogic.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dlogic_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquick.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquick_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickanimation.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickanimation_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickextras.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickextras_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickinput.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickinput_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickrender.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickrender_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickscene2d.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3dquickscene2d_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3drender.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_3drender_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_accessibility_support_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_bluetooth.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_bluetooth_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_bootstrap_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_concurrent.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_concurrent_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_core.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_core_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_dbus.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_dbus_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_designer.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_designer_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_designercomponents_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_devicediscovery_support_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_edid_support_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_egl_support_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_eglfs_kms_support_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_eglfsdeviceintegration_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_eventdispatcher_support_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_fb_support_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_fontdatabase_support_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_gamepad.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_gamepad_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_glx_support_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_gui.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_gui_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_help.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_help_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_input_support_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_kms_support_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_linuxaccessibility_support_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_location.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_location_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_multimedia.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_multimedia_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_multimediagsttools_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_multimediawidgets.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_multimediawidgets_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_network.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_network_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_nfc.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_nfc_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_opengl.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_opengl_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_openglextensions.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_openglextensions_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_packetprotocol_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_platformcompositor_support_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_positioning.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_positioning_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_positioningquick.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_positioningquick_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_printsupport.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_printsupport_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qml.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qml_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qmldebug_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qmldevtools_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qmltest.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qmltest_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_qtmultimediaquicktools_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quick.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quick_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickcontrols2.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickcontrols2_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickparticles_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickshapes_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quicktemplates2.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quicktemplates2_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickwidgets.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_quickwidgets_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_remoteobjects.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_remoteobjects_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_repparser.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_repparser_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_scxml.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_scxml_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_sensors.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_sensors_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_serialbus.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_serialbus_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_serialport.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_serialport_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_service_support_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_sql.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_sql_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_svg.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_svg_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_testlib.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_testlib_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_texttospeech.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_texttospeech_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_theme_support_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_uiplugin.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_uitools.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_uitools_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_vulkan_support_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_waylandclient.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_waylandclient_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_waylandcompositor.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_waylandcompositor_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_webchannel.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_webchannel_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_websockets.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_websockets_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_webview.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_webview_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_widgets.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_widgets_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_x11extras.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_x11extras_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_xml.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_xml_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_xmlpatterns.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/modules/qt_lib_xmlpatterns_private.pri:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qt_functions.prf:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qt_config.prf:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-g++/qmake.conf:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_post.prf:
 .qmake.stash:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/exclusive_builds.prf:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/toolchain.prf:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/default_pre.prf:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/resolve_config.prf:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/default_post.prf:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/warn_on.prf:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qt.prf:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/resources.prf:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/moc.prf:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/unix/opengl.prf:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/uic.prf:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/unix/thread.prf:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qmake_use.prf:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/file_copies.prf:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/testcase_targets.prf:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/exceptions.prf:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/yacc.prf:
-../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/lex.prf:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/exclusive_builds.prf:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/toolchain.prf:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/default_pre.prf:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/resolve_config.prf:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/default_post.prf:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/warn_on.prf:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qt.prf:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/resources.prf:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/moc.prf:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/unix/opengl.prf:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/uic.prf:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/unix/thread.prf:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qmake_use.prf:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/file_copies.prf:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/testcase_targets.prf:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/exceptions.prf:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/yacc.prf:
+/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/lex.prf:
 Tax_Shopping_Calculator.pro:
 qmake: FORCE
 	@$(QMAKE) -o Makefile Tax_Shopping_Calculator.pro -spec linux-g++ CONFIG+=debug
@@ -603,10 +609,10 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp mainwindow.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents /home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.h login.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp login.cpp mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.ui login.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -635,133 +641,251 @@ compiler_rcc_clean:
 compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
-moc_predefs.h: ../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/data/dummy.cpp
-	g++ -pipe -g -Wall -W -dM -E -o moc_predefs.h ../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/data/dummy.cpp
+moc_predefs.h: /home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/data/dummy.cpp
+	g++ -pipe -g -Wall -W -dM -E -o moc_predefs.h /home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_login.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_login.cpp
 moc_mainwindow.cpp: mainwindow.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QMainWindow \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qmainwindow.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtguiglobal.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qglobal.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qconfig-bootstrapped.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qconfig.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtcore-config.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsystemdetection.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qprocessordetection.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcompilerdetection.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtypeinfo.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsysinfo.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qlogging.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qflags.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbasicatomic.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qgenericatomic.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic_cxx11.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic_msvc.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qglobalstatic.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmutex.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qnumeric.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qversiontagging.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtgui-config.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qwidget.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qwindowdefs.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobjectdefs.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qnamespace.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qwindowdefs_win.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobject.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstring.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qchar.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbytearray.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qrefcount.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qarraydata.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringliteral.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringalgorithms.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringview.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringbuilder.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qlist.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qalgorithms.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qiterator.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qhashfunctions.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qpair.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbytearraylist.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringlist.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qregexp.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringmatcher.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcoreevent.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qscopedpointer.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmetatype.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qvarlengtharray.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobject_impl.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmargins.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpaintdevice.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qrect.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsize.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qpoint.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpalette.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qcolor.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qrgb.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qrgba64.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qbrush.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qvector.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qmatrix.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpolygon.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qregion.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qdatastream.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qiodevice.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qline.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtransform.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpainterpath.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qimage.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpixelformat.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpixmap.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsharedpointer.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qshareddata.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qhash.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qfont.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qfontmetrics.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qfontinfo.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qsizepolicy.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qcursor.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qkeysequence.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qevent.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qvariant.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmap.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qdebug.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtextstream.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qlocale.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qset.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcontiguouscache.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qurl.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qurlquery.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfile.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfiledevice.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qvector2d.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtouchdevice.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtabwidget.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qicon.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QMainWindow \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qmainwindow.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qglobal.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qconfig.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtcore-config.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsysinfo.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qlogging.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qflags.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmutex.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qnumeric.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qversiontagging.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtgui-config.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qwidget.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qnamespace.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobject.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstring.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qchar.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbytearray.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qrefcount.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qarraydata.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringliteral.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringview.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qlist.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qalgorithms.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qiterator.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qpair.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringlist.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qregexp.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcoreevent.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmetatype.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobject_impl.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmargins.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qrect.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsize.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qpoint.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpalette.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qcolor.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qrgb.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qrgba64.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qbrush.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qvector.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qmatrix.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpolygon.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qregion.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qdatastream.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qiodevice.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qline.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtransform.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpainterpath.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qimage.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpixelformat.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpixmap.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qshareddata.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qhash.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qfont.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qfontinfo.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qcursor.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qkeysequence.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qevent.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qvariant.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmap.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qdebug.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtextstream.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qlocale.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qset.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qurl.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qurlquery.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfile.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfiledevice.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qvector2d.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qicon.h \
 		moc_predefs.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/bin/moc
-	/home/andyvera/Qt5.12.12/5.12.12/gcc_64/bin/moc $(DEFINES) --include /home/andyvera/Documents/CPSC_254/CPSC_254_Tax_Shopping_Calculator/Tax_Shopping_Calculator/moc_predefs.h -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-g++ -I/home/andyvera/Documents/CPSC_254/CPSC_254_Tax_Shopping_Calculator/Tax_Shopping_Calculator -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include mainwindow.h -o moc_mainwindow.cpp
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/bin/moc
+	/home/andyvera/Qt5.12.12/5.12.12/gcc_64/bin/moc $(DEFINES) --include /home/andyvera/Documents/CPSC_254/CPSC254_V2/CPSC_254_Tax_Shopping_Calculator/Tax_Shopping_Calculator/moc_predefs.h -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-g++ -I/home/andyvera/Documents/CPSC_254/CPSC254_V2/CPSC_254_Tax_Shopping_Calculator/Tax_Shopping_Calculator -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include mainwindow.h -o moc_mainwindow.cpp
+
+moc_login.cpp: login.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QDialog \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qdialog.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qglobal.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qconfig.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtcore-config.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsysinfo.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qlogging.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qflags.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmutex.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qnumeric.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qversiontagging.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtgui-config.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qwidget.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qnamespace.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobject.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstring.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qchar.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbytearray.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qrefcount.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qarraydata.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringliteral.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringview.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qlist.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qalgorithms.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qiterator.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qpair.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringlist.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qregexp.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcoreevent.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmetatype.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobject_impl.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmargins.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qrect.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsize.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qpoint.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpalette.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qcolor.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qrgb.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qrgba64.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qbrush.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qvector.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qmatrix.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpolygon.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qregion.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qdatastream.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qiodevice.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qline.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtransform.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpainterpath.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qimage.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpixelformat.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpixmap.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qshareddata.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qhash.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qfont.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qfontinfo.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qcursor.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qkeysequence.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qevent.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qvariant.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmap.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qdebug.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtextstream.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qlocale.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qset.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qurl.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qurlquery.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfile.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfiledevice.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qvector2d.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtouchdevice.h \
+		mainwindow.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QMainWindow \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qmainwindow.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qicon.h \
+		moc_predefs.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/bin/moc
+	/home/andyvera/Qt5.12.12/5.12.12/gcc_64/bin/moc $(DEFINES) --include /home/andyvera/Documents/CPSC_254/CPSC254_V2/CPSC_254_Tax_Shopping_Calculator/Tax_Shopping_Calculator/moc_predefs.h -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-g++ -I/home/andyvera/Documents/CPSC_254/CPSC254_V2/CPSC_254_Tax_Shopping_Calculator/Tax_Shopping_Calculator -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include login.h -o moc_login.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h
+compiler_uic_make_all: ui_mainwindow.h ui_login.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h
+	-$(DEL_FILE) ui_mainwindow.h ui_login.h
 ui_mainwindow.h: mainwindow.ui \
-		../../../../Qt5.12.12/5.12.12/gcc_64/bin/uic
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/bin/uic
 	/home/andyvera/Qt5.12.12/5.12.12/gcc_64/bin/uic mainwindow.ui -o ui_mainwindow.h
+
+ui_login.h: login.ui \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/bin/uic
+	/home/andyvera/Qt5.12.12/5.12.12/gcc_64/bin/uic login.ui -o ui_login.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -773,278 +897,405 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 ####### Compile
 
-main.o: main.cpp mainwindow.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QMainWindow \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qmainwindow.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtguiglobal.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qglobal.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qconfig-bootstrapped.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qconfig.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtcore-config.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsystemdetection.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qprocessordetection.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcompilerdetection.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtypeinfo.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsysinfo.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qlogging.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qflags.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbasicatomic.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qgenericatomic.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic_cxx11.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic_msvc.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qglobalstatic.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmutex.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qnumeric.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qversiontagging.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtgui-config.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qwidget.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qwindowdefs.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobjectdefs.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qnamespace.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qwindowdefs_win.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobject.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstring.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qchar.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbytearray.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qrefcount.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qarraydata.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringliteral.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringalgorithms.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringview.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringbuilder.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qlist.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qalgorithms.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qiterator.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qhashfunctions.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qpair.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbytearraylist.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringlist.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qregexp.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringmatcher.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcoreevent.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qscopedpointer.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmetatype.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qvarlengtharray.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobject_impl.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmargins.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpaintdevice.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qrect.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsize.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qpoint.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpalette.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qcolor.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qrgb.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qrgba64.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qbrush.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qvector.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qmatrix.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpolygon.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qregion.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qdatastream.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qiodevice.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qline.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtransform.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpainterpath.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qimage.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpixelformat.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpixmap.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsharedpointer.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qshareddata.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qhash.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qfont.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qfontmetrics.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qfontinfo.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qsizepolicy.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qcursor.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qkeysequence.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qevent.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qvariant.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmap.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qdebug.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtextstream.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qlocale.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qset.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcontiguouscache.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qurl.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qurlquery.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfile.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfiledevice.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qvector2d.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtouchdevice.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtabwidget.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qicon.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QApplication \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qapplication.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcoreapplication.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qeventloop.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qguiapplication.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qinputmethod.h
+main.o: main.cpp login.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QDialog \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qdialog.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qglobal.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qconfig.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtcore-config.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsysinfo.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qlogging.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qflags.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmutex.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qnumeric.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qversiontagging.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtgui-config.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qwidget.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qnamespace.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobject.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstring.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qchar.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbytearray.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qrefcount.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qarraydata.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringliteral.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringview.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qlist.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qalgorithms.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qiterator.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qpair.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringlist.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qregexp.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcoreevent.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmetatype.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobject_impl.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmargins.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qrect.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsize.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qpoint.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpalette.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qcolor.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qrgb.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qrgba64.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qbrush.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qvector.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qmatrix.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpolygon.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qregion.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qdatastream.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qiodevice.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qline.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtransform.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpainterpath.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qimage.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpixelformat.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpixmap.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qshareddata.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qhash.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qfont.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qfontinfo.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qcursor.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qkeysequence.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qevent.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qvariant.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmap.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qdebug.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtextstream.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qlocale.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qset.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qurl.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qurlquery.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfile.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfiledevice.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qvector2d.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtouchdevice.h \
+		mainwindow.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QMainWindow \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qmainwindow.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qicon.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QApplication \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qapplication.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qeventloop.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qguiapplication.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qinputmethod.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
+login.o: login.cpp login.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QDialog \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qdialog.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qglobal.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qconfig.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtcore-config.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsysinfo.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qlogging.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qflags.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmutex.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qnumeric.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qversiontagging.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtgui-config.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qwidget.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qnamespace.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobject.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstring.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qchar.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbytearray.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qrefcount.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qarraydata.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringliteral.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringview.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qlist.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qalgorithms.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qiterator.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qpair.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringlist.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qregexp.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcoreevent.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmetatype.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobject_impl.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmargins.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qrect.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsize.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qpoint.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpalette.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qcolor.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qrgb.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qrgba64.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qbrush.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qvector.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qmatrix.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpolygon.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qregion.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qdatastream.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qiodevice.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qline.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtransform.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpainterpath.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qimage.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpixelformat.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpixmap.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qshareddata.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qhash.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qfont.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qfontinfo.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qcursor.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qkeysequence.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qevent.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qvariant.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmap.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qdebug.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtextstream.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qlocale.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qset.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qurl.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qurlquery.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfile.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfiledevice.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qvector2d.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtouchdevice.h \
+		mainwindow.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QMainWindow \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qmainwindow.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qicon.h \
+		ui_login.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QMessageBox \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qmessagebox.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/QDir \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qdir.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfileinfo.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/QTextStream
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o login.o login.cpp
+
 mainwindow.o: mainwindow.cpp mainwindow.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QMainWindow \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qmainwindow.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtguiglobal.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qglobal.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qconfig-bootstrapped.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qconfig.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtcore-config.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsystemdetection.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qprocessordetection.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcompilerdetection.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtypeinfo.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsysinfo.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qlogging.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qflags.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbasicatomic.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qgenericatomic.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic_cxx11.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic_msvc.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qglobalstatic.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmutex.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qnumeric.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qversiontagging.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtgui-config.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qwidget.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qwindowdefs.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobjectdefs.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qnamespace.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qwindowdefs_win.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobject.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstring.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qchar.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbytearray.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qrefcount.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qarraydata.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringliteral.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringalgorithms.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringview.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringbuilder.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qlist.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qalgorithms.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qiterator.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qhashfunctions.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qpair.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbytearraylist.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringlist.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qregexp.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringmatcher.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcoreevent.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qscopedpointer.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmetatype.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qvarlengtharray.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobject_impl.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmargins.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpaintdevice.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qrect.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsize.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qpoint.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpalette.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qcolor.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qrgb.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qrgba64.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qbrush.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qvector.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qmatrix.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpolygon.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qregion.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qdatastream.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qiodevice.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qline.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtransform.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpainterpath.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qimage.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpixelformat.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpixmap.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsharedpointer.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qshareddata.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qhash.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qfont.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qfontmetrics.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qfontinfo.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qsizepolicy.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qcursor.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qkeysequence.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qevent.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qvariant.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmap.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qdebug.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtextstream.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qlocale.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qset.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcontiguouscache.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qurl.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qurlquery.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfile.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfiledevice.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qvector2d.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtouchdevice.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtabwidget.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qicon.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QMainWindow \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qmainwindow.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qglobal.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qconfig.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtcore-config.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsysinfo.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qlogging.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qflags.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmutex.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qnumeric.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qversiontagging.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtgui-config.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qwidget.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qnamespace.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobject.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstring.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qchar.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbytearray.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qrefcount.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qarraydata.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringliteral.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringview.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qlist.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qalgorithms.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qiterator.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qpair.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringlist.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qregexp.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcoreevent.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmetatype.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobject_impl.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmargins.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qrect.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsize.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qpoint.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpalette.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qcolor.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qrgb.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qrgba64.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qbrush.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qvector.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qmatrix.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpolygon.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qregion.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qdatastream.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qiodevice.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qline.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtransform.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpainterpath.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qimage.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpixelformat.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpixmap.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qshareddata.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qhash.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qfont.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qfontinfo.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qcursor.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qkeysequence.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qevent.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qvariant.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmap.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qdebug.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtextstream.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qlocale.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qset.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qurl.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qurlquery.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfile.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfiledevice.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qvector2d.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qicon.h \
 		ui_mainwindow.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/QVariant \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QApplication \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qapplication.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcoreapplication.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qeventloop.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qguiapplication.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qinputmethod.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QComboBox \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qcombobox.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qstyleoption.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qvalidator.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qregularexpression.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qslider.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qabstractslider.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qstyle.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtabbar.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qrubberband.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qframe.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qabstractitemmodel.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QLabel \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qlabel.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QLineEdit \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qlineedit.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtextcursor.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtextformat.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpen.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtextoption.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QPushButton \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qpushbutton.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qabstractbutton.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QWidget \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QMessageBox \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qmessagebox.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qdialog.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/QDebug \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/QVector \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/QFile \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/QTextStream \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/QDir \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qdir.h \
-		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfileinfo.h
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/QVariant \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QApplication \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qapplication.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qeventloop.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qguiapplication.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qinputmethod.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QComboBox \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qcombobox.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qstyleoption.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qvalidator.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qregularexpression.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qslider.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qstyle.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtabbar.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qframe.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QLabel \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qlabel.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QLineEdit \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qlineedit.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtextcursor.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtextformat.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpen.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtextoption.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QPushButton \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QWidget \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QMessageBox \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qmessagebox.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qdialog.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/QDebug \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/QVector \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/QFile \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/QTextStream \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/QDir \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qdir.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfileinfo.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/QRandomGenerator \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qrandom.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
+
+moc_login.o: moc_login.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_login.o moc_login.cpp
 
 ####### Install
 
