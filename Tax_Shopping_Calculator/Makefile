@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = Tax_Shopping_Calculator1.0.0
-DISTDIR = /home/andyvera/Documents/CPSC_254/CPSC254_V2/CPSC_254_Tax_Shopping_Calculator/Tax_Shopping_Calculator/.tmp/Tax_Shopping_Calculator1.0.0
+DISTDIR = /home/andyvera/Documents/CPSC_254/Calculator_V2/CPSC_254_Tax_Shopping_Calculator/Tax_Shopping_Calculator/.tmp/Tax_Shopping_Calculator1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-rpath,/home/andyvera/Qt5.12.12/5.12.12/gcc_64/lib
 LIBS          = $(SUBLIBS) /home/andyvera/Qt5.12.12/5.12.12/gcc_64/lib/libQt5Widgets.so /home/andyvera/Qt5.12.12/5.12.12/gcc_64/lib/libQt5Gui.so /home/andyvera/Qt5.12.12/5.12.12/gcc_64/lib/libQt5Core.so -lGL -lpthread   
@@ -54,13 +54,17 @@ OBJECTS_DIR   = ./
 
 SOURCES       = main.cpp \
 		login.cpp \
-		mainwindow.cpp moc_mainwindow.cpp \
-		moc_login.cpp
+		mainwindow.cpp \
+		receipts.cpp moc_mainwindow.cpp \
+		moc_login.cpp \
+		moc_receipts.cpp
 OBJECTS       = main.o \
 		login.o \
 		mainwindow.o \
+		receipts.o \
 		moc_mainwindow.o \
-		moc_login.o
+		moc_login.o \
+		moc_receipts.o
 DIST          = /home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/common/unix.conf \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/common/linux.conf \
@@ -234,9 +238,11 @@ DIST          = /home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_pr
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/yacc.prf \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/lex.prf \
 		Tax_Shopping_Calculator.pro mainwindow.h \
-		login.h main.cpp \
+		login.h \
+		receipts.h main.cpp \
 		login.cpp \
-		mainwindow.cpp
+		mainwindow.cpp \
+		receipts.cpp
 QMAKE_TARGET  = Tax_Shopping_Calculator
 DESTDIR       = 
 TARGET        = Tax_Shopping_Calculator
@@ -245,7 +251,7 @@ TARGET        = Tax_Shopping_Calculator
 first: all
 ####### Build rules
 
-Tax_Shopping_Calculator: ui_mainwindow.h ui_login.h $(OBJECTS)  
+Tax_Shopping_Calculator: ui_mainwindow.h ui_login.h ui_receipts.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: Tax_Shopping_Calculator.pro /home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-g++/qmake.conf /home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_pre.prf \
@@ -610,9 +616,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.h login.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp login.cpp mainwindow.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.ui login.ui $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.h login.h receipts.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp login.cpp mainwindow.cpp receipts.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.ui login.ui receipts.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -644,9 +650,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -Wall -W -dM -E -o moc_predefs.h /home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_login.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_login.cpp moc_receipts.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_login.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_login.cpp moc_receipts.cpp
 moc_mainwindow.cpp: mainwindow.h \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QMainWindow \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qmainwindow.h \
@@ -754,9 +760,12 @@ moc_mainwindow.cpp: mainwindow.h \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtouchdevice.h \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtabwidget.h \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qicon.h \
+		receipts.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QDialog \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qdialog.h \
 		moc_predefs.h \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/bin/moc
-	/home/andyvera/Qt5.12.12/5.12.12/gcc_64/bin/moc $(DEFINES) --include /home/andyvera/Documents/CPSC_254/CPSC254_V2/CPSC_254_Tax_Shopping_Calculator/Tax_Shopping_Calculator/moc_predefs.h -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-g++ -I/home/andyvera/Documents/CPSC_254/CPSC254_V2/CPSC_254_Tax_Shopping_Calculator/Tax_Shopping_Calculator -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include mainwindow.h -o moc_mainwindow.cpp
+	/home/andyvera/Qt5.12.12/5.12.12/gcc_64/bin/moc $(DEFINES) --include /home/andyvera/Documents/CPSC_254/Calculator_V2/CPSC_254_Tax_Shopping_Calculator/Tax_Shopping_Calculator/moc_predefs.h -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-g++ -I/home/andyvera/Documents/CPSC_254/Calculator_V2/CPSC_254_Tax_Shopping_Calculator/Tax_Shopping_Calculator -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include mainwindow.h -o moc_mainwindow.cpp
 
 moc_login.cpp: login.h \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QDialog \
@@ -868,17 +877,127 @@ moc_login.cpp: login.h \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qmainwindow.h \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtabwidget.h \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qicon.h \
+		receipts.h \
 		moc_predefs.h \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/bin/moc
-	/home/andyvera/Qt5.12.12/5.12.12/gcc_64/bin/moc $(DEFINES) --include /home/andyvera/Documents/CPSC_254/CPSC254_V2/CPSC_254_Tax_Shopping_Calculator/Tax_Shopping_Calculator/moc_predefs.h -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-g++ -I/home/andyvera/Documents/CPSC_254/CPSC254_V2/CPSC_254_Tax_Shopping_Calculator/Tax_Shopping_Calculator -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include login.h -o moc_login.cpp
+	/home/andyvera/Qt5.12.12/5.12.12/gcc_64/bin/moc $(DEFINES) --include /home/andyvera/Documents/CPSC_254/Calculator_V2/CPSC_254_Tax_Shopping_Calculator/Tax_Shopping_Calculator/moc_predefs.h -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-g++ -I/home/andyvera/Documents/CPSC_254/Calculator_V2/CPSC_254_Tax_Shopping_Calculator/Tax_Shopping_Calculator -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include login.h -o moc_login.cpp
+
+moc_receipts.cpp: receipts.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QDialog \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qdialog.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qglobal.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qconfig.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtcore-config.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsysinfo.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qlogging.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qflags.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmutex.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qnumeric.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qversiontagging.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtgui-config.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qwidget.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qnamespace.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobject.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstring.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qchar.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbytearray.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qrefcount.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qarraydata.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringliteral.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringview.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qlist.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qalgorithms.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qiterator.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qpair.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringlist.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qregexp.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcoreevent.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmetatype.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobject_impl.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmargins.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qrect.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsize.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qpoint.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpalette.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qcolor.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qrgb.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qrgba64.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qbrush.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qvector.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qmatrix.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpolygon.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qregion.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qdatastream.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qiodevice.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qline.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtransform.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpainterpath.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qimage.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpixelformat.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpixmap.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qshareddata.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qhash.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qfont.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qfontinfo.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qcursor.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qkeysequence.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qevent.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qvariant.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmap.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qdebug.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtextstream.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qlocale.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qset.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qurl.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qurlquery.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfile.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfiledevice.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qvector2d.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtouchdevice.h \
+		moc_predefs.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/bin/moc
+	/home/andyvera/Qt5.12.12/5.12.12/gcc_64/bin/moc $(DEFINES) --include /home/andyvera/Documents/CPSC_254/Calculator_V2/CPSC_254_Tax_Shopping_Calculator/Tax_Shopping_Calculator/moc_predefs.h -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-g++ -I/home/andyvera/Documents/CPSC_254/Calculator_V2/CPSC_254_Tax_Shopping_Calculator/Tax_Shopping_Calculator -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui -I/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include receipts.h -o moc_receipts.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_login.h
+compiler_uic_make_all: ui_mainwindow.h ui_login.h ui_receipts.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_login.h
+	-$(DEL_FILE) ui_mainwindow.h ui_login.h ui_receipts.h
 ui_mainwindow.h: mainwindow.ui \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/bin/uic
 	/home/andyvera/Qt5.12.12/5.12.12/gcc_64/bin/uic mainwindow.ui -o ui_mainwindow.h
@@ -886,6 +1005,10 @@ ui_mainwindow.h: mainwindow.ui \
 ui_login.h: login.ui \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/bin/uic
 	/home/andyvera/Qt5.12.12/5.12.12/gcc_64/bin/uic login.ui -o ui_login.h
+
+ui_receipts.h: receipts.ui \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/bin/uic
+	/home/andyvera/Qt5.12.12/5.12.12/gcc_64/bin/uic receipts.ui -o ui_receipts.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -1007,6 +1130,7 @@ main.o: main.cpp login.h \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qmainwindow.h \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtabwidget.h \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qicon.h \
+		receipts.h \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QApplication \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qapplication.h \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcoreapplication.h \
@@ -1126,13 +1250,44 @@ login.o: login.cpp login.h \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qmainwindow.h \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtabwidget.h \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qicon.h \
+		receipts.h \
 		ui_login.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/QVariant \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QApplication \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qapplication.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qeventloop.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qguiapplication.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qinputmethod.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QHBoxLayout \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qlayout.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QLabel \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qlabel.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qframe.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QLineEdit \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qlineedit.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtextcursor.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtextformat.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpen.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtextoption.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QPushButton \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QStackedWidget \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qstackedwidget.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QVBoxLayout \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QWidget \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QMessageBox \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qmessagebox.h \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/QDir \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qdir.h \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfileinfo.h \
-		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/QTextStream
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/QTextStream \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o login.o login.cpp
 
 mainwindow.o: mainwindow.cpp mainwindow.h \
@@ -1242,6 +1397,9 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtouchdevice.h \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtabwidget.h \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qicon.h \
+		receipts.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QDialog \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qdialog.h \
 		ui_mainwindow.h \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/QVariant \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QApplication \
@@ -1279,7 +1437,6 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QWidget \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QMessageBox \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qmessagebox.h \
-		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qdialog.h \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/QDebug \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/QVector \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/QFile \
@@ -1291,11 +1448,122 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qrandom.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 
+receipts.o: receipts.cpp receipts.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QDialog \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qdialog.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qglobal.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qconfig.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtcore-config.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsysinfo.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qlogging.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qflags.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmutex.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qnumeric.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qversiontagging.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtgui-config.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qwidget.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qnamespace.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobject.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstring.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qchar.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbytearray.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qrefcount.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qarraydata.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringliteral.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringview.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qlist.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qalgorithms.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qiterator.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qpair.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringlist.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qregexp.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcoreevent.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmetatype.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qobject_impl.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmargins.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qrect.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsize.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qpoint.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpalette.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qcolor.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qrgb.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qrgba64.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qbrush.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qvector.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qmatrix.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpolygon.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qregion.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qdatastream.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qiodevice.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qline.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtransform.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpainterpath.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qimage.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpixelformat.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpixmap.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qshareddata.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qhash.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qfont.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qfontinfo.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qcursor.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qkeysequence.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qevent.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qvariant.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qmap.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qdebug.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qtextstream.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qlocale.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qset.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qurl.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qurlquery.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfile.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfiledevice.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qvector2d.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtouchdevice.h \
+		ui_receipts.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o receipts.o receipts.cpp
+
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
 
 moc_login.o: moc_login.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_login.o moc_login.cpp
+
+moc_receipts.o: moc_receipts.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_receipts.o moc_receipts.cpp
 
 ####### Install
 

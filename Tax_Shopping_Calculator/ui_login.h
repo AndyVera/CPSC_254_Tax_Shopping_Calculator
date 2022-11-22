@@ -29,7 +29,7 @@ public:
     QWidget *login_page;
     QPushButton *login_push;
     QPushButton *createacc_push;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout_2;
     QLabel *user;
@@ -38,7 +38,7 @@ public:
     QLabel *password;
     QLineEdit *password_line;
     QWidget *createAcc_page;
-    QWidget *layoutWidget;
+    QWidget *layoutWidget1;
     QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout_3;
     QLabel *user_label;
@@ -65,20 +65,20 @@ public:
         createacc_push = new QPushButton(login_page);
         createacc_push->setObjectName(QString::fromUtf8("createacc_push"));
         createacc_push->setGeometry(QRect(80, 160, 101, 24));
-        widget = new QWidget(login_page);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(10, 40, 171, 60));
-        verticalLayout = new QVBoxLayout(widget);
+        layoutWidget = new QWidget(login_page);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(10, 40, 171, 62));
+        verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        user = new QLabel(widget);
+        user = new QLabel(layoutWidget);
         user->setObjectName(QString::fromUtf8("user"));
 
         horizontalLayout_2->addWidget(user);
 
-        user_line = new QLineEdit(widget);
+        user_line = new QLineEdit(layoutWidget);
         user_line->setObjectName(QString::fromUtf8("user_line"));
 
         horizontalLayout_2->addWidget(user_line);
@@ -88,12 +88,12 @@ public:
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        password = new QLabel(widget);
+        password = new QLabel(layoutWidget);
         password->setObjectName(QString::fromUtf8("password"));
 
         horizontalLayout->addWidget(password);
 
-        password_line = new QLineEdit(widget);
+        password_line = new QLineEdit(layoutWidget);
         password_line->setObjectName(QString::fromUtf8("password_line"));
 
         horizontalLayout->addWidget(password_line);
@@ -104,20 +104,20 @@ public:
         stackedWidget->addWidget(login_page);
         createAcc_page = new QWidget();
         createAcc_page->setObjectName(QString::fromUtf8("createAcc_page"));
-        layoutWidget = new QWidget(createAcc_page);
-        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(0, 20, 261, 111));
-        verticalLayout_2 = new QVBoxLayout(layoutWidget);
+        layoutWidget1 = new QWidget(createAcc_page);
+        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(0, 20, 261, 111));
+        verticalLayout_2 = new QVBoxLayout(layoutWidget1);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        user_label = new QLabel(layoutWidget);
+        user_label = new QLabel(layoutWidget1);
         user_label->setObjectName(QString::fromUtf8("user_label"));
 
         horizontalLayout_3->addWidget(user_label);
 
-        user_line_2 = new QLineEdit(layoutWidget);
+        user_line_2 = new QLineEdit(layoutWidget1);
         user_line_2->setObjectName(QString::fromUtf8("user_line_2"));
 
         horizontalLayout_3->addWidget(user_line_2);
@@ -127,12 +127,12 @@ public:
 
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
-        pass_label_2 = new QLabel(layoutWidget);
+        pass_label_2 = new QLabel(layoutWidget1);
         pass_label_2->setObjectName(QString::fromUtf8("pass_label_2"));
 
         horizontalLayout_4->addWidget(pass_label_2);
 
-        pass_line = new QLineEdit(layoutWidget);
+        pass_line = new QLineEdit(layoutWidget1);
         pass_line->setObjectName(QString::fromUtf8("pass_line"));
 
         horizontalLayout_4->addWidget(pass_line);

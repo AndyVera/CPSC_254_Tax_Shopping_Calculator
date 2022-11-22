@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "receipts.h"
 
 namespace Ui {
 class MainWindow;
@@ -29,6 +30,8 @@ private slots:
     void updateSubTransTotalViews(double tempSubTotal, double tempTranstotal);
 
     void on_SavelistBtn_clicked();
+
+    void on_RecieptsBtn_clicked();
 
 private:
     Ui::MainWindow *ui;

@@ -22,7 +22,7 @@
      <height>191</height>
     </rect>
    </property>
-   <widget class="QWidget" name="login_page" native="true">
+   <widget class="QWidget" name="login_page">
     <widget class="QPushButton" name="login_push">
      <property name="geometry">
       <rect>
@@ -49,13 +49,13 @@
       <string>Create Account</string>
      </property>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>10</x>
        <y>40</y>
        <width>171</width>
-       <height>60</height>
+       <height>62</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">

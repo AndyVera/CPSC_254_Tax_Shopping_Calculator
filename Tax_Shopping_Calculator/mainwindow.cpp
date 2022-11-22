@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "receipts.h"
 #include <array>
 #include <QMessageBox>
 #include <QDebug>
@@ -241,5 +242,15 @@ void MainWindow::on_SavelistBtn_clicked()
     QMessageBox::information(this, tr("Save Transaction"), tr("Current Transaction Was Saved!"));
 
 
+}
+
+
+void MainWindow::on_RecieptsBtn_clicked()
+{
+    this->hide();
+    Receipts receiptspage;
+    receiptspage.setModal(true);
+    receiptspage.exec();
+    this->show();
 }
 
