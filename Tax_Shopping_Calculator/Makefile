@@ -1553,7 +1553,18 @@ receipts.o: receipts.cpp receipts.h \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qfiledevice.h \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qvector2d.h \
 		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtouchdevice.h \
-		ui_receipts.h
+		ui_receipts.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/QVariant \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QApplication \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qapplication.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtCore/qeventloop.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qguiapplication.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtGui/qinputmethod.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QLabel \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qlabel.h \
+		/home/andyvera/Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qframe.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o receipts.o receipts.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 

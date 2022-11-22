@@ -45,7 +45,6 @@ public:
     QPushButton *ClearBtn;
     QPushButton *DisplayBtn;
     QPushButton *SavelistBtn;
-    QPushButton *LogoutButton;
     QPushButton *RecieptsBtn;
 
     void setupUi(QMainWindow *MainWindow)
@@ -119,9 +118,6 @@ public:
         SavelistBtn = new QPushButton(centralWidget);
         SavelistBtn->setObjectName(QString::fromUtf8("SavelistBtn"));
         SavelistBtn->setGeometry(QRect(200, 340, 89, 25));
-        LogoutButton = new QPushButton(centralWidget);
-        LogoutButton->setObjectName(QString::fromUtf8("LogoutButton"));
-        LogoutButton->setGeometry(QRect(420, 10, 89, 25));
         RecieptsBtn = new QPushButton(centralWidget);
         RecieptsBtn->setObjectName(QString::fromUtf8("RecieptsBtn"));
         RecieptsBtn->setGeometry(QRect(420, 50, 89, 25));
@@ -152,7 +148,6 @@ public:
         ClearBtn->setText(QApplication::translate("MainWindow", "Clear List", nullptr));
         DisplayBtn->setText(QApplication::translate("MainWindow", "Display", nullptr));
         SavelistBtn->setText(QApplication::translate("MainWindow", "Save", nullptr));
-        LogoutButton->setText(QApplication::translate("MainWindow", "Logout", nullptr));
         RecieptsBtn->setText(QApplication::translate("MainWindow", "Receipts", nullptr));
     } // retranslateUi
 
