@@ -35,7 +35,7 @@ void login::on_login_push_clicked()
 
     QTextStream output(&transfile);
 
-    QString username = ui->user_line_2->text();
+    QString username = ui->user_line->text();
     QString password = ui->password_line->text();
     QString read1 = output.readLine();
     QString read2 = output.readLine();
