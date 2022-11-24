@@ -13,17 +13,66 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="TitlePage">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>110</y>
-     <width>67</width>
+     <x>150</x>
+     <y>0</y>
+     <width>121</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Receipts Page</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="ShowReceipts">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>240</y>
+     <width>121</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Show Receipts</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="SelectReceipt">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>240</y>
+     <width>121</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Select Receipt</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="ReceiptList">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>60</y>
+     <width>211</width>
+     <height>25</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="NoReceiptsFound">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>70</y>
+     <width>141</width>
      <height>17</height>
     </rect>
    </property>
    <property name="text">
-    <string>Testing</string>
+    <string>No Receipts Found</string>
    </property>
   </widget>
  </widget>

@@ -48,6 +48,8 @@ public:
     QLineEdit *pass_line;
     QPushButton *submit_createAcc;
     QLabel *label;
+    QLabel *label_2;
+    QLabel *label_3;
 
     void setupUi(QDialog *login)
     {
@@ -64,7 +66,7 @@ public:
         login_push->setGeometry(QRect(90, 130, 80, 24));
         createacc_push = new QPushButton(login_page);
         createacc_push->setObjectName(QString::fromUtf8("createacc_push"));
-        createacc_push->setGeometry(QRect(80, 160, 101, 24));
+        createacc_push->setGeometry(QRect(60, 160, 141, 24));
         layoutWidget = new QWidget(login_page);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
         layoutWidget->setGeometry(QRect(10, 40, 171, 62));
@@ -147,8 +149,17 @@ public:
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(10, 0, 241, 16));
         stackedWidget->addWidget(createAcc_page);
+        label_2 = new QLabel(login);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(130, 30, 141, 17));
+        label_3 = new QLabel(login);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setGeometry(QRect(10, 280, 91, 17));
 
         retranslateUi(login);
+
+        stackedWidget->setCurrentIndex(0);
+
 
         QMetaObject::connectSlotsByName(login);
     } // setupUi
@@ -164,6 +175,8 @@ public:
         pass_label_2->setText(QApplication::translate("login", "Password", nullptr));
         submit_createAcc->setText(QApplication::translate("login", "Submit", nullptr));
         label->setText(QApplication::translate("login", "Create and Submit Username and Password", nullptr));
+        label_2->setText(QApplication::translate("login", "Shopping Calculator", nullptr));
+        label_3->setText(QApplication::translate("login", "Verson 1.0.0", nullptr));
     } // retranslateUi
 
 };

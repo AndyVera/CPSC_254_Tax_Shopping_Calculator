@@ -22,6 +22,9 @@
      <height>191</height>
     </rect>
    </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
    <widget class="QWidget" name="login_page">
     <widget class="QPushButton" name="login_push">
      <property name="geometry">
@@ -39,9 +42,9 @@
     <widget class="QPushButton" name="createacc_push">
      <property name="geometry">
       <rect>
-       <x>80</x>
+       <x>60</x>
        <y>160</y>
-       <width>101</width>
+       <width>141</width>
        <height>24</height>
       </rect>
      </property>
@@ -158,6 +161,32 @@
      </property>
     </widget>
    </widget>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>30</y>
+     <width>141</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Shopping Calculator</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>280</y>
+     <width>91</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Verson 1.0.0</string>
+   </property>
   </widget>
  </widget>
  <resources/>
