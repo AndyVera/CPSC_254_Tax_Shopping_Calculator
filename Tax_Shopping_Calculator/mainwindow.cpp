@@ -11,6 +11,8 @@
 #include <QTextStream>
 #include <QDir>
 #include <QRandomGenerator>
+#include <QDateTime>
+#include <iomanip>
 using namespace std;
 
 double taxRate = 0.0;
@@ -22,6 +24,8 @@ QVector<QString>itemnamelist;
 QVector<QString> itemtypelist;
 QVector<QString> itempricelist;
 string itemlist = "There Are No Items In Cart";
+float TransactionTotal = 0.00;
+float SubTotal = 0.00;
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -32,8 +36,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->LocationCombo->addItem("Los Angeles");
     ui->LocationCombo->addItem("Fullerton");
-    ui->ItemTypeCombo->addItem("GM");
-    ui->ItemTypeCombo->addItem("GR");
+    ui->ItemTypeCombo->addItem("General Merch");
+    ui->ItemTypeCombo->addItem("Groceries");
 }
 
 MainWindow::~MainWindow()
@@ -53,6 +57,12 @@ void MainWindow::on_LocationSubmitBtn_clicked()
 
     QString strngTaxRate = QString::number(taxRate);
     ui->TaxRateShow->setText(strngTaxRate+"%");
+
+    if (!itemnamelist.isEmpty()){
+        double TransactionTotal = UpdateTransTotal(itemnamelist, itemtypelist,itempricelist);
+        double SubTotal = UpdateSubTotal(itemnamelist, itemtypelist, itempricelist);
+        updateSubTransTotalViews(SubTotal,TransactionTotal);
+    }
 }
 
 void MainWindow::on_AddItemBtn_clicked()
@@ -67,17 +77,17 @@ void MainWindow::on_AddItemBtn_clicked()
         itemtypelist.append(itemtype);
         itempricelist.append(ui->ItemPriceBox->text());
 
-        double transactionTotal = UpdateTransTotal(itemnamelist, itemtypelist, itempricelist);
-        double subtotal = UpdateSubTotal(itemnamelist, itemtypelist, itempricelist);
+         TransactionTotal = UpdateTransTotal(itemnamelist, itemtypelist, itempricelist);
+         SubTotal = UpdateSubTotal(itemnamelist, itemtypelist, itempricelist);
 
-        updateSubTransTotalViews(subtotal,transactionTotal);
+        updateSubTransTotalViews(SubTotal,TransactionTotal);
 
         ui->ItemNameBox->setText("");
         ui->ItemPriceBox->setText("");
     }
     else if (taxRate == 0.00){
         QMessageBox messagebox;
-        messagebox.critical(0,"Invalid Entry","Enter a Location First!");
+        messagebox.critical(this,"Invalid Entry","Enter a Location First!");
     }
 
 }
@@ -86,16 +96,26 @@ void MainWindow::on_DisplayBtn_clicked()
 {
     //string itemlist;
 
+//    QDateTime curentDateTime = QDateTime::currentDateTime();
+//    QString strnDateTime = curentDateTime.toString("MM.dd.yyyy hh:mm:ss");
     if(!itemnamelist.isEmpty()){
-        itemlist = "";
-        for(int i = 0; i < itemnamelist.size(); i++){
-            itemlist += itemnamelist[i].toStdString();
-            itemlist += " ";
-            itemlist += itemtypelist[i].toStdString();
-            itemlist += " $";
-            itemlist += itempricelist[i].toStdString();
-            itemlist += "\n";
-        }
+        itemlist = recieptCreation(itemnamelist, itemtypelist, itempricelist);
+//        itemlist = "";
+//        itemlist = itemlist + "\tTransaction Receipt\t\t\n" + "                 Date: " + strnDateTime.toStdString() + "\n\n\n";
+//        for(int i = 0; i < itemnamelist.size(); i++){
+//            itemlist += "          ";
+//            itemlist += itemnamelist[i].toStdString();
+//            itemlist += " |";
+//            itemlist += itemtypelist[i].toStdString();
+//            itemlist += " |$";
+//            itemlist += itempricelist[i].toStdString();
+//            itemlist += "\n";
+//        }
+
+//        QString strnSubTotal = QString::number(SubTotal, 'f', 2 );
+//        QString strnTaxRate = QString::number(taxRate, 'f', 2 );
+//        QString strnTranTotal = QString::number(TransactionTotal, 'f', 2 );
+//        itemlist = itemlist +"\n\tSubtotal = " +strnSubTotal.toStdString()  + "\n\tTax = " + strnTaxRate.toStdString()  + "%\n\tTotal = " + strnTranTotal.toStdString() ;
     }
 
     if(itemnamelist.isEmpty()){
@@ -173,13 +193,13 @@ double UpdateTransTotal(QVector<QString> tempnamelist, QVector<QString> temptype
     double tempTransTotal = 0.00;
 
     for(int i = 0; i < tempnamelist.size(); i++){
-        if (temptypelist[i] == "GM"){
+        if (temptypelist[i] == "General Merch"){
             double tax = taxRate/100;
             double taxAdded = temppricelist[i].toDouble() * tax;
             double itemtotal = temppricelist[i].toDouble() + taxAdded;
             tempTransTotal += itemtotal;
         }
-        else if (temptypelist[i] == "GR"){
+        else if (temptypelist[i] == "Groceries"){
             tempTransTotal += temppricelist[i].toDouble();
         }
     }
@@ -220,15 +240,7 @@ void MainWindow::on_SavelistBtn_clicked()
 
     QTextStream output(&transfile);
     if(!itemnamelist.isEmpty()){
-        itemlist = "";
-        for(int i = 0; i < itemnamelist.size(); i++){
-            itemlist += itemnamelist[i].toStdString();
-            itemlist += " ";
-            itemlist += itemtypelist[i].toStdString();
-            itemlist += " $";
-            itemlist += itempricelist[i].toStdString();
-            itemlist += "\n";
-        }
+        itemlist = recieptCreation(itemnamelist,itemtypelist, itempricelist);
     }
 
     if(itemnamelist.isEmpty()){
@@ -254,3 +266,26 @@ void MainWindow::on_RecieptsBtn_clicked()
     this->show();
 }
 
+string recieptCreation(QVector<QString> tempnamelist, QVector<QString> temptypelist, QVector<QString>temppricelist){
+    QDateTime curentDateTime = QDateTime::currentDateTime();
+    QString strnDateTime = curentDateTime.toString("MM.dd.yyyy hh:mm:ss");
+
+    itemlist = "";
+    itemlist = itemlist + "\tTransaction Receipt\t\t\n" + "                 Date: " + strnDateTime.toStdString() + "\n\n\n";
+    for(int i = 0; i < tempnamelist.size(); i++){
+        itemlist += "          ";
+        itemlist += tempnamelist[i].toStdString();
+        itemlist += " |";
+        itemlist += temptypelist[i].toStdString();
+        itemlist += " |$";
+        itemlist += temppricelist[i].toStdString();
+        itemlist += "\n";
+    }
+
+    QString strnSubTotal = QString::number(SubTotal, 'f', 2 );
+    QString strnTaxRate = QString::number(taxRate, 'f', 2 );
+    QString strnTranTotal = QString::number(TransactionTotal, 'f', 2 );
+    itemlist = itemlist +"\n\tSubtotal = " +strnSubTotal.toStdString()  + "\n\tTax = " + strnTaxRate.toStdString()  + "%\n\tTotal = " + strnTranTotal.toStdString() ;
+
+    return itemlist;
+}

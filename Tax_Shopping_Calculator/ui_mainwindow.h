@@ -46,6 +46,7 @@ public:
     QPushButton *DisplayBtn;
     QPushButton *SavelistBtn;
     QPushButton *RecieptsBtn;
+    QLabel *label;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -93,16 +94,16 @@ public:
         TotalText->setGeometry(QRect(170, 400, 101, 16));
         TotalPriceText = new QLabel(centralWidget);
         TotalPriceText->setObjectName(QString::fromUtf8("TotalPriceText"));
-        TotalPriceText->setGeometry(QRect(270, 400, 59, 15));
+        TotalPriceText->setGeometry(QRect(270, 400, 111, 16));
         SubtotalText_2 = new QLabel(centralWidget);
         SubtotalText_2->setObjectName(QString::fromUtf8("SubtotalText_2"));
         SubtotalText_2->setGeometry(QRect(170, 380, 91, 17));
         SubtotalText = new QLabel(centralWidget);
         SubtotalText->setObjectName(QString::fromUtf8("SubtotalText"));
-        SubtotalText->setGeometry(QRect(270, 380, 67, 17));
+        SubtotalText->setGeometry(QRect(270, 380, 121, 17));
         ItemTypeCombo = new QComboBox(centralWidget);
         ItemTypeCombo->setObjectName(QString::fromUtf8("ItemTypeCombo"));
-        ItemTypeCombo->setGeometry(QRect(210, 230, 86, 25));
+        ItemTypeCombo->setGeometry(QRect(180, 230, 141, 25));
         LocationCombo = new QComboBox(centralWidget);
         LocationCombo->setObjectName(QString::fromUtf8("LocationCombo"));
         LocationCombo->setGeometry(QRect(20, 100, 251, 25));
@@ -121,6 +122,9 @@ public:
         RecieptsBtn = new QPushButton(centralWidget);
         RecieptsBtn->setObjectName(QString::fromUtf8("RecieptsBtn"));
         RecieptsBtn->setGeometry(QRect(420, 50, 89, 25));
+        label = new QLabel(centralWidget);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(340, 230, 16, 17));
         MainWindow->setCentralWidget(centralWidget);
 
         retranslateUi(MainWindow);
@@ -149,6 +153,7 @@ public:
         DisplayBtn->setText(QApplication::translate("MainWindow", "Display", nullptr));
         SavelistBtn->setText(QApplication::translate("MainWindow", "Save", nullptr));
         RecieptsBtn->setText(QApplication::translate("MainWindow", "Receipts", nullptr));
+        label->setText(QApplication::translate("MainWindow", "$", nullptr));
     } // retranslateUi
 
 };

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 5.0.2, 2022-11-21T23:21:24. -->
+<!-- Written by QtCreator 5.0.2, 2022-11-27T12:50:31. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -232,7 +232,6 @@
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/andyvera/Documents/CPSC_254/Calculator_V2/CPSC_254_Tax_Shopping_Calculator/Tax_Shopping_Calculator</value>
    </valuemap>
    <value type="int" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>

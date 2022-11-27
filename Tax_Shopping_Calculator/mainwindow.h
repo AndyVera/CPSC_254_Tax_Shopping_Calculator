@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include "receipts.h"
+#include <string>
+using namespace std;
 
 namespace Ui {
 class MainWindow;
@@ -39,5 +41,6 @@ private:
 
 double UpdateSubTotal(QVector<QString> tempnamelist, QVector<QString> temptypelist, QVector<QString>temppricelist);
 double UpdateTransTotal(QVector<QString> tempnamelist, QVector<QString> temptypelist, QVector<QString>temppricelist);
+string recieptCreation(QVector<QString> tempnamelist, QVector<QString> temptypelist, QVector<QString>temppricelist);
 
 #endif // MAINWINDOW_H
