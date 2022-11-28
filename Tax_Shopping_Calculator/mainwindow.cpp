@@ -18,14 +18,13 @@ using namespace std;
 double taxRate = 0.0;
 QString inputlocation = "";
 QString SetLocations[2] = {"Los Angeles", "Fullerton"};
-//double TransactionTotal = 0.0;
-//double Subtotal = 0.00;
 QVector<QString>itemnamelist;
 QVector<QString> itemtypelist;
 QVector<QString> itempricelist;
 string itemlist = "There Are No Items In Cart";
 float TransactionTotal = 0.00;
 float SubTotal = 0.00;
+QDateTime curentDateTime;
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -216,8 +215,9 @@ void MainWindow::updateSubTransTotalViews(double tempSubTotal, double tempTranst
 
 void MainWindow::on_SavelistBtn_clicked()
 {
-    int filename = (rand() % (10));
-    QString filenmestr = QString::number(filename);
+    //int filename = (rand() % (10));
+    QDateTime filename = QDateTime::currentDateTime();
+    QString filenmestr = filename.toString("ddd MMMM d yyyy hh:mm:ss");
     QString foldername = "Receipts/";
     QDir dir;
 
@@ -264,7 +264,7 @@ void MainWindow::on_RecieptsBtn_clicked()
 }
 
 string recieptCreation(QVector<QString> tempnamelist, QVector<QString> temptypelist, QVector<QString>temppricelist){
-    QDateTime curentDateTime = QDateTime::currentDateTime();
+    curentDateTime = QDateTime::currentDateTime();
     QString strnDateTime = curentDateTime.toString("MM.dd.yyyy hh:mm:ss");
 
     itemlist = "";

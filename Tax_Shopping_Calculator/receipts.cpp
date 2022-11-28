@@ -38,7 +38,7 @@ void Receipts::on_ShowReceipts_clicked()
 
     for (int i = 1; i < allreceipts.size(); i++){
         //ui->ReceiptList->addItem(allreceipts.at(i).completeBaseName());
-        ui->ReceiptList->addItem(allreceipts.at(i).fileName());
+        ui->ReceiptList->addItem(allreceipts.at(i).baseName());
     }
 
     ui->ReceiptList->show();

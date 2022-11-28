@@ -1,0 +1,9 @@
+	Transaction Receipt		
+                 Date: 11.27.2022 20:33:33
+
+
+          Bannana |Groceries |$2.00
+
+	Subtotal = 2.00
+	Tax = 9.50%
+	Total = 2.00
