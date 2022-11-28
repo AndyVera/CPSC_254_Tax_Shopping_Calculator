@@ -46,7 +46,10 @@ public:
     QPushButton *DisplayBtn;
     QPushButton *SavelistBtn;
     QPushButton *RecieptsBtn;
-    QLabel *label;
+    QLabel *DollarSign;
+    QLabel *CustomTaxTxt;
+    QLineEdit *CustomTaxBox;
+    QPushButton *CustomTaxBtn;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -60,11 +63,11 @@ public:
         AppTitle->setGeometry(QRect(170, 0, 181, 41));
         AskLocationTxt = new QLabel(centralWidget);
         AskLocationTxt->setObjectName(QString::fromUtf8("AskLocationTxt"));
-        AskLocationTxt->setGeometry(QRect(20, 60, 271, 31));
+        AskLocationTxt->setGeometry(QRect(20, 40, 271, 31));
         AskLocationTxt->setLineWidth(2);
         LocationSubmitBtn = new QPushButton(centralWidget);
         LocationSubmitBtn->setObjectName(QString::fromUtf8("LocationSubmitBtn"));
-        LocationSubmitBtn->setGeometry(QRect(290, 100, 80, 23));
+        LocationSubmitBtn->setGeometry(QRect(310, 70, 80, 23));
         TaxRateStatemtn = new QLabel(centralWidget);
         TaxRateStatemtn->setObjectName(QString::fromUtf8("TaxRateStatemtn"));
         TaxRateStatemtn->setGeometry(QRect(20, 150, 131, 16));
@@ -106,7 +109,7 @@ public:
         ItemTypeCombo->setGeometry(QRect(180, 230, 141, 25));
         LocationCombo = new QComboBox(centralWidget);
         LocationCombo->setObjectName(QString::fromUtf8("LocationCombo"));
-        LocationCombo->setGeometry(QRect(20, 100, 251, 25));
+        LocationCombo->setGeometry(QRect(20, 70, 251, 25));
         DeleteItemBtn = new QPushButton(centralWidget);
         DeleteItemBtn->setObjectName(QString::fromUtf8("DeleteItemBtn"));
         DeleteItemBtn->setGeometry(QRect(140, 290, 89, 25));
@@ -121,10 +124,19 @@ public:
         SavelistBtn->setGeometry(QRect(200, 340, 89, 25));
         RecieptsBtn = new QPushButton(centralWidget);
         RecieptsBtn->setObjectName(QString::fromUtf8("RecieptsBtn"));
-        RecieptsBtn->setGeometry(QRect(420, 50, 89, 25));
-        label = new QLabel(centralWidget);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(340, 230, 16, 17));
+        RecieptsBtn->setGeometry(QRect(410, 10, 89, 25));
+        DollarSign = new QLabel(centralWidget);
+        DollarSign->setObjectName(QString::fromUtf8("DollarSign"));
+        DollarSign->setGeometry(QRect(340, 230, 16, 17));
+        CustomTaxTxt = new QLabel(centralWidget);
+        CustomTaxTxt->setObjectName(QString::fromUtf8("CustomTaxTxt"));
+        CustomTaxTxt->setGeometry(QRect(20, 120, 161, 17));
+        CustomTaxBox = new QLineEdit(centralWidget);
+        CustomTaxBox->setObjectName(QString::fromUtf8("CustomTaxBox"));
+        CustomTaxBox->setGeometry(QRect(200, 120, 113, 25));
+        CustomTaxBtn = new QPushButton(centralWidget);
+        CustomTaxBtn->setObjectName(QString::fromUtf8("CustomTaxBtn"));
+        CustomTaxBtn->setGeometry(QRect(350, 120, 89, 25));
         MainWindow->setCentralWidget(centralWidget);
 
         retranslateUi(MainWindow);
@@ -153,7 +165,9 @@ public:
         DisplayBtn->setText(QApplication::translate("MainWindow", "Display", nullptr));
         SavelistBtn->setText(QApplication::translate("MainWindow", "Save", nullptr));
         RecieptsBtn->setText(QApplication::translate("MainWindow", "Receipts", nullptr));
-        label->setText(QApplication::translate("MainWindow", "$", nullptr));
+        DollarSign->setText(QApplication::translate("MainWindow", "$", nullptr));
+        CustomTaxTxt->setText(QApplication::translate("MainWindow", "Enter Custom Tax Rate:", nullptr));
+        CustomTaxBtn->setText(QApplication::translate("MainWindow", "Enter", nullptr));
     } // retranslateUi
 
 };

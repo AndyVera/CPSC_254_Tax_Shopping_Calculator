@@ -36,8 +36,13 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->LocationCombo->addItem("Los Angeles");
     ui->LocationCombo->addItem("Fullerton");
+    ui->LocationCombo->addItem("Custom");
     ui->ItemTypeCombo->addItem("General Merch");
     ui->ItemTypeCombo->addItem("Groceries");
+
+    ui->CustomTaxBox->hide();
+    ui->CustomTaxTxt->hide();
+    ui->CustomTaxBtn->hide();
 }
 
 MainWindow::~MainWindow()
@@ -48,11 +53,22 @@ MainWindow::~MainWindow()
 void MainWindow::on_LocationSubmitBtn_clicked()
 {
     inputlocation = ui->LocationCombo->currentText();
+
+    ui->CustomTaxTxt->hide();
+    ui->CustomTaxBox->hide();
+    ui->CustomTaxBtn->hide();
+
     if (inputlocation == "Los Angeles") {
         taxRate = 9.5;
     }
     else if (inputlocation == "Fullerton"){
         taxRate = 7.75;
+    }
+    else if (inputlocation == "Custom"){
+        ui->CustomTaxTxt->show();
+        ui->CustomTaxBox->show();
+        ui->CustomTaxBtn->show();
+        return;
     }
 
     QString strngTaxRate = QString::number(taxRate);
@@ -95,27 +111,8 @@ void MainWindow::on_AddItemBtn_clicked()
 void MainWindow::on_DisplayBtn_clicked()
 {
     //string itemlist;
-
-//    QDateTime curentDateTime = QDateTime::currentDateTime();
-//    QString strnDateTime = curentDateTime.toString("MM.dd.yyyy hh:mm:ss");
     if(!itemnamelist.isEmpty()){
         itemlist = recieptCreation(itemnamelist, itemtypelist, itempricelist);
-//        itemlist = "";
-//        itemlist = itemlist + "\tTransaction Receipt\t\t\n" + "                 Date: " + strnDateTime.toStdString() + "\n\n\n";
-//        for(int i = 0; i < itemnamelist.size(); i++){
-//            itemlist += "          ";
-//            itemlist += itemnamelist[i].toStdString();
-//            itemlist += " |";
-//            itemlist += itemtypelist[i].toStdString();
-//            itemlist += " |$";
-//            itemlist += itempricelist[i].toStdString();
-//            itemlist += "\n";
-//        }
-
-//        QString strnSubTotal = QString::number(SubTotal, 'f', 2 );
-//        QString strnTaxRate = QString::number(taxRate, 'f', 2 );
-//        QString strnTranTotal = QString::number(TransactionTotal, 'f', 2 );
-//        itemlist = itemlist +"\n\tSubtotal = " +strnSubTotal.toStdString()  + "\n\tTax = " + strnTaxRate.toStdString()  + "%\n\tTotal = " + strnTranTotal.toStdString() ;
     }
 
     if(itemnamelist.isEmpty()){
@@ -282,6 +279,9 @@ string recieptCreation(QVector<QString> tempnamelist, QVector<QString> temptypel
         itemlist += "\n";
     }
 
+    SubTotal = UpdateSubTotal(tempnamelist, temptypelist, temppricelist);
+    TransactionTotal = UpdateTransTotal(tempnamelist,temptypelist, temppricelist);
+
     QString strnSubTotal = QString::number(SubTotal, 'f', 2 );
     QString strnTaxRate = QString::number(taxRate, 'f', 2 );
     QString strnTranTotal = QString::number(TransactionTotal, 'f', 2 );
@@ -289,3 +289,20 @@ string recieptCreation(QVector<QString> tempnamelist, QVector<QString> temptypel
 
     return itemlist;
 }
+
+void MainWindow::on_CustomTaxBtn_clicked()
+{
+    QString customtax = ui->CustomTaxBox->text();
+    taxRate = customtax.toDouble();
+
+    QString strngTaxRate = QString::number(taxRate);
+    ui->TaxRateShow->setText(strngTaxRate+"%");
+
+    if (!itemnamelist.isEmpty()){
+        double TransactionTotal = UpdateTransTotal(itemnamelist, itemtypelist,itempricelist);
+        double SubTotal = UpdateSubTotal(itemnamelist, itemtypelist, itempricelist);
+        updateSubTransTotalViews(SubTotal,TransactionTotal);
+    }
+
+}
+

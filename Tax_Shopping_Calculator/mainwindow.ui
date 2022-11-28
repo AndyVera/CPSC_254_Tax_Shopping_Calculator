@@ -31,7 +31,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>60</y>
+      <y>40</y>
       <width>271</width>
       <height>31</height>
      </rect>
@@ -46,8 +46,8 @@
    <widget class="QPushButton" name="LocationSubmitBtn">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>100</y>
+      <x>310</x>
+      <y>70</y>
       <width>80</width>
       <height>23</height>
      </rect>
@@ -220,7 +220,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>100</y>
+      <y>70</y>
       <width>251</width>
       <height>25</height>
      </rect>
@@ -281,8 +281,8 @@
    <widget class="QPushButton" name="RecieptsBtn">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>50</y>
+      <x>410</x>
+      <y>10</y>
       <width>89</width>
       <height>25</height>
      </rect>
@@ -291,7 +291,7 @@
      <string>Receipts</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="DollarSign">
     <property name="geometry">
      <rect>
       <x>340</x>
@@ -302,6 +302,42 @@
     </property>
     <property name="text">
      <string>$</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="CustomTaxTxt">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>120</y>
+      <width>161</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Enter Custom Tax Rate:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="CustomTaxBox">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>120</y>
+      <width>113</width>
+      <height>25</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="CustomTaxBtn">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>120</y>
+      <width>89</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Enter</string>
     </property>
    </widget>
   </widget>

@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[12];
-    char stringdata0[229];
+    QByteArrayData data[13];
+    char stringdata0[253];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -42,7 +42,8 @@ QT_MOC_LITERAL(7, 130, 24), // "updateSubTransTotalViews"
 QT_MOC_LITERAL(8, 155, 12), // "tempSubTotal"
 QT_MOC_LITERAL(9, 168, 14), // "tempTranstotal"
 QT_MOC_LITERAL(10, 183, 22), // "on_SavelistBtn_clicked"
-QT_MOC_LITERAL(11, 206, 22) // "on_RecieptsBtn_clicked"
+QT_MOC_LITERAL(11, 206, 22), // "on_RecieptsBtn_clicked"
+QT_MOC_LITERAL(12, 229, 23) // "on_CustomTaxBtn_clicked"
 
     },
     "MainWindow\0on_LocationSubmitBtn_clicked\0"
@@ -50,7 +51,7 @@ QT_MOC_LITERAL(11, 206, 22) // "on_RecieptsBtn_clicked"
     "on_ClearBtn_clicked\0on_DeleteItemBtn_clicked\0"
     "updateSubTransTotalViews\0tempSubTotal\0"
     "tempTranstotal\0on_SavelistBtn_clicked\0"
-    "on_RecieptsBtn_clicked"
+    "on_RecieptsBtn_clicked\0on_CustomTaxBtn_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -60,7 +61,7 @@ static const uint qt_meta_data_MainWindow[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       8,   14, // methods
+       9,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -68,14 +69,15 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   54,    2, 0x08 /* Private */,
-       3,    0,   55,    2, 0x08 /* Private */,
-       4,    0,   56,    2, 0x08 /* Private */,
-       5,    0,   57,    2, 0x08 /* Private */,
-       6,    0,   58,    2, 0x08 /* Private */,
-       7,    2,   59,    2, 0x08 /* Private */,
-      10,    0,   64,    2, 0x08 /* Private */,
-      11,    0,   65,    2, 0x08 /* Private */,
+       1,    0,   59,    2, 0x08 /* Private */,
+       3,    0,   60,    2, 0x08 /* Private */,
+       4,    0,   61,    2, 0x08 /* Private */,
+       5,    0,   62,    2, 0x08 /* Private */,
+       6,    0,   63,    2, 0x08 /* Private */,
+       7,    2,   64,    2, 0x08 /* Private */,
+      10,    0,   69,    2, 0x08 /* Private */,
+      11,    0,   70,    2, 0x08 /* Private */,
+      12,    0,   71,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -84,6 +86,7 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Double, QMetaType::Double,    8,    9,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -104,6 +107,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 5: _t->updateSubTransTotalViews((*reinterpret_cast< double(*)>(_a[1])),(*reinterpret_cast< double(*)>(_a[2]))); break;
         case 6: _t->on_SavelistBtn_clicked(); break;
         case 7: _t->on_RecieptsBtn_clicked(); break;
+        case 8: _t->on_CustomTaxBtn_clicked(); break;
         default: ;
         }
     }
@@ -138,13 +142,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 8)
+        if (_id < 9)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
+        _id -= 9;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 8)
+        if (_id < 9)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 8;
+        _id -= 9;
     }
     return _id;
 }

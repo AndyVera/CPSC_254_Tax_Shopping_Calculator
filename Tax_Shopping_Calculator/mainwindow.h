@@ -35,6 +35,8 @@ private slots:
 
     void on_RecieptsBtn_clicked();
 
+    void on_CustomTaxBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
