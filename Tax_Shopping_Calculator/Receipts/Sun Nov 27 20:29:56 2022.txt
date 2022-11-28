@@ -1,9 +1,0 @@
-	Transaction Receipt		
-                 Date: 11.27.2022 20:29:56
-
-
-          Tv |General Merch |$100.00
-
-	Subtotal = 100.00
-	Tax = 9.50%
-	Total = 109.50

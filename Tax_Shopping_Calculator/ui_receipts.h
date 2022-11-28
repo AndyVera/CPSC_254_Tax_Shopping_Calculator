@@ -43,10 +43,10 @@ public:
         SelectReceipt->setGeometry(QRect(230, 240, 121, 25));
         ReceiptList = new QComboBox(Receipts);
         ReceiptList->setObjectName(QString::fromUtf8("ReceiptList"));
-        ReceiptList->setGeometry(QRect(90, 60, 211, 25));
+        ReceiptList->setGeometry(QRect(70, 60, 261, 25));
         NoReceiptsFound = new QLabel(Receipts);
         NoReceiptsFound->setObjectName(QString::fromUtf8("NoReceiptsFound"));
-        NoReceiptsFound->setGeometry(QRect(130, 70, 141, 17));
+        NoReceiptsFound->setGeometry(QRect(140, 70, 141, 17));
 
         retranslateUi(Receipts);
 

@@ -49,12 +49,13 @@ void Receipts::on_SelectReceipt_clicked()
 {
     QString chosenReceipt = ui->ReceiptList->currentText();
 
+    qDebug() << chosenReceipt;
     if (chosenReceipt == ".." || chosenReceipt == ""){
         QMessageBox receipterror;
         receipterror.critical(this, tr("Receipt Fetching"), tr("Select a valid receipt"));
     }
 
-    QString fullpathreceipt = receiptpath + chosenReceipt;
+    QString fullpathreceipt = receiptpath + chosenReceipt + ".txt";
     QFile receipttxt (fullpathreceipt);
 
     if(!receipttxt.open(QFile::ReadOnly | QFile::Text)){

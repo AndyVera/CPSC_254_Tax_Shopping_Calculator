@@ -17,7 +17,9 @@ using namespace std;
 
 double taxRate = 0.0;
 QString inputlocation = "";
-QString SetLocations[2] = {"Los Angeles", "Fullerton"};
+
+QVector <QString> CityLocations = {"Los Angeles", "Fullerton", "Anaheim", "San Diego", "Irvine", "Pasadena", "Santa Monica", "Buena Park", "Garden Grove", "Inglewood"};
+QVector <QString> CityTaxRate = {"9.5", "7.75", "7.75", "7.75", "7.75", "10.25", "10.25", "7.75", "8.75", "10.00"  };
 QVector<QString>itemnamelist;
 QVector<QString> itemtypelist;
 QVector<QString> itempricelist;
@@ -33,9 +35,13 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->LocationCombo->addItem("Los Angeles");
-    ui->LocationCombo->addItem("Fullerton");
+    //ui->LocationCombo->addItem("Los Angeles");
+    //ui->LocationCombo->addItem("Fullerton");
+    for(int i = 0; i < CityLocations.size(); i++){
+        ui->LocationCombo->addItem(CityLocations[i]);
+    }
     ui->LocationCombo->addItem("Custom");
+
     ui->ItemTypeCombo->addItem("General Merch");
     ui->ItemTypeCombo->addItem("Groceries");
 
@@ -57,11 +63,18 @@ void MainWindow::on_LocationSubmitBtn_clicked()
     ui->CustomTaxBox->hide();
     ui->CustomTaxBtn->hide();
 
-    if (inputlocation == "Los Angeles") {
-        taxRate = 9.5;
-    }
-    else if (inputlocation == "Fullerton"){
-        taxRate = 7.75;
+//    if (inputlocation == "Los Angeles") {
+//        taxRate = 9.5;
+//    }
+//    else if (inputlocation == "Fullerton"){
+//        taxRate = 7.75;
+//    }
+    if (inputlocation != "Custom"){
+        for(int i = 0; i < CityLocations.size(); i++){
+            if(inputlocation == CityLocations[i]){
+                taxRate = CityTaxRate[i].toFloat();
+            }
+        }
     }
     else if (inputlocation == "Custom"){
         ui->CustomTaxTxt->show();
