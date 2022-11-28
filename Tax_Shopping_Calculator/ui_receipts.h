@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'receipts.ui'
 **
-** Created by: Qt User Interface Compiler version 5.12.12
+** Created by: Qt User Interface Compiler version 5.15.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -26,6 +26,7 @@ public:
     QPushButton *SelectReceipt;
     QComboBox *ReceiptList;
     QLabel *NoReceiptsFound;
+    QPushButton *findfromfs;
 
     void setupUi(QDialog *Receipts)
     {
@@ -47,6 +48,9 @@ public:
         NoReceiptsFound = new QLabel(Receipts);
         NoReceiptsFound->setObjectName(QString::fromUtf8("NoReceiptsFound"));
         NoReceiptsFound->setGeometry(QRect(140, 70, 141, 17));
+        findfromfs = new QPushButton(Receipts);
+        findfromfs->setObjectName(QString::fromUtf8("findfromfs"));
+        findfromfs->setGeometry(QRect(160, 170, 89, 25));
 
         retranslateUi(Receipts);
 
@@ -55,11 +59,12 @@ public:
 
     void retranslateUi(QDialog *Receipts)
     {
-        Receipts->setWindowTitle(QApplication::translate("Receipts", "Dialog", nullptr));
-        TitlePage->setText(QApplication::translate("Receipts", "Receipts Page", nullptr));
-        ShowReceipts->setText(QApplication::translate("Receipts", "Show Receipts", nullptr));
-        SelectReceipt->setText(QApplication::translate("Receipts", "Select Receipt", nullptr));
-        NoReceiptsFound->setText(QApplication::translate("Receipts", "No Receipts Found", nullptr));
+        Receipts->setWindowTitle(QCoreApplication::translate("Receipts", "Dialog", nullptr));
+        TitlePage->setText(QCoreApplication::translate("Receipts", "Receipts Page", nullptr));
+        ShowReceipts->setText(QCoreApplication::translate("Receipts", "Show Receipts", nullptr));
+        SelectReceipt->setText(QCoreApplication::translate("Receipts", "Select Receipt", nullptr));
+        NoReceiptsFound->setText(QCoreApplication::translate("Receipts", "No Receipts Found", nullptr));
+        findfromfs->setText(QCoreApplication::translate("Receipts", "Find", nullptr));
     } // retranslateUi
 
 };

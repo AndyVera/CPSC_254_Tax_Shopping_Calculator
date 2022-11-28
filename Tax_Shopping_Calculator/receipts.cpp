@@ -1,12 +1,6 @@
 #include "receipts.h"
 #include "ui_receipts.h"
-#include <QString>
-#include <QDir>
-#include <QDebug>
-#include <QMessageBox>
-#include <QFile>
-#include <string.h>
-#include "string"
+
 
 QString receiptpath = "Receipts/";
 Receipts::Receipts(QWidget *parent) :
@@ -68,5 +62,28 @@ void Receipts::on_SelectReceipt_clicked()
     QMessageBox::information(this, tr("Reciept"), tr(receiptinput.toLatin1().data()));
 
     receipttxt.close();
+}
+
+
+void Receipts::on_findfromfs_clicked()
+{
+    QString filepath = QFileDialog::getOpenFileName(this, "Open a File", "/home/");
+    QMessageBox::information(this, "...", filepath);
+
+    QFile file(filepath);
+
+    if (!file.open(QFile::ReadOnly | QFile::Text))
+    {
+        QMessageBox::warning(this, "title", "File did not open!");
+    }
+
+    QTextStream in (&file);
+    QString text = in.readAll();
+
+    const char* printItemList = text.toLatin1().data();
+    QMessageBox::information(this, tr("Item List"), tr(printItemList));
+
+
+    file.close();
 }
 

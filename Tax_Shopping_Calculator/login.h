@@ -3,6 +3,11 @@
 
 #include <QDialog>
 #include "mainwindow.h"
+#include <QMessageBox>
+#include <QDir>
+#include <QTextStream>
+#include <QDebug>
+
 
 namespace Ui {
 class login;

@@ -1,10 +1,7 @@
 #include "login.h"
 #include "ui_login.h"
 
-#include <QMessageBox>
-#include <QDir>
-#include <QTextStream>
-#include <QDebug>
+
 using namespace std;
 
 login::login(QWidget *parent) :

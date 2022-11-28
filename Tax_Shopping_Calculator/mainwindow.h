@@ -4,6 +4,19 @@
 #include <QMainWindow>
 #include "receipts.h"
 #include <string>
+#include <array>
+#include <QMessageBox>
+#include <QDebug>
+#include <QVector>
+#include <vector>
+#include <QFile>
+#include <QTextStream>
+#include <QDir>
+#include <QRandomGenerator>
+#include <QDateTime>
+#include <iomanip>
+
+
 using namespace std;
 
 namespace Ui {
